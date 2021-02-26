@@ -6,10 +6,14 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 public class Quiz {
-
     // Klass Quiz
-
     //Ni ska skapa en klass som håller reda på frågor, svarsalternativ och vilket svarsalternativ som är rätt.
+
+    String questions = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\Files\\Questions.txt";
+    Stream<String> temp = Files.lines(Paths.get(questions));
+
+    public Quiz() throws IOException {
+    }
 
 
     public void answerAlternatives() {
@@ -21,10 +25,10 @@ public class Quiz {
     }
 
     public void getQuestions() throws IOException {
-        String questions = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\Files\\Questions.txt";
-        Stream<String> temp = Files.lines(Paths.get(questions));
+
 
         temp
+                //.filter(x -> )
                 .forEach(x -> System.out.println(x));
         temp.close();
     }
