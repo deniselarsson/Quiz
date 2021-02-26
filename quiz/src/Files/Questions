@@ -1,0 +1,25 @@
+1 - What is a class in java?
+    A - A class is a blue print from which individual objects are created. A class can contain fields and methods to describe the behavior of an object.
+
+    B - class is a special data type.
+
+    C - class is used to allocate memory to a data type.
+
+    D - none of the above.
+
+    ANSWER: A
+
+2 - What is the size of int variable?
+
+    A - 8 bit
+
+    B - 16 bit
+
+    C - 32 bit
+
+    D - 64 bit
+
+    ANSWER: C
+
+
+
