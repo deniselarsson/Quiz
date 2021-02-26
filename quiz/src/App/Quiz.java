@@ -10,8 +10,8 @@ public class Quiz {
     //Ni ska skapa en klass som håller reda på frågor, svarsalternativ och vilket svarsalternativ som är rätt.
 
 
-        String filename = "C:/ECutbildning/Avancerad Java/Inlämningsuppgifter/Quiz.git/quiz/src/Files/Questions";
-        Stream<String> temp = Files.lines(Paths.get(filename));
+    String filename = "C:/ECutbildning/Avancerad Java/Inlämningsuppgifter/Quiz.git/quiz/src/Files/Questions";
+    Stream<String> temp = Files.lines(Paths.get(filename));
 
     public Quiz() throws IOException {
     }
@@ -42,4 +42,3 @@ public class Quiz {
 
     }
 }
-

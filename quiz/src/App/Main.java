@@ -1,8 +1,11 @@
 package App;
+import java.io.IOException;
 
-public class Main {
+    public class Main {
 
-    public static void main (String []args){
-        System.out.println("hej");
+        public static void main (String []args) throws IOException {
+            Quiz myQuiz = new Quiz();
+            myQuiz.getQuestions();
+        }
+
     }
-}
