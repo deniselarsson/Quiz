@@ -1,4 +1,9 @@
 package App;
+import java.io.IOException;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 public class Quiz {
 
@@ -9,8 +14,17 @@ public class Quiz {
 
     }
 
-    public void getQuestions() {
+    public void getQuestions() throws IOException{
+        String filename = "C:/ECutbildning/Avancerad Java/Inlämningsuppgifter/Quiz.git/quiz/src/Files/Questions";
+        Stream<String> temp = Files.lines(Paths.get(filename));
 
+
+        temp
+                .filter(x -> x.length() >= 5)
+
+                .forEach(x -> System.out.println(x));
+
+        temp.close();
     }
 
     public void readSerializedObjects() {
