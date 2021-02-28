@@ -1,12 +1,14 @@
 Q 1 - Which of the following is not a keyword in java?
 
-    A - static
+    1A - static
 
-    B - Boolean
+    1B - Boolean
 
-    C - void
+    1C - void
 
-    C - private
+    1D - private
+
+    1 ANSWER: B
 
 Q 2 - What is the size of boolean variable?
 
