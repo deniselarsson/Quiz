@@ -17,7 +17,7 @@ public class Quiz {
 
 
     public void answerAlternatives(String alternativeNumber) throws IOException {
-        String questions = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\Files\\Questions.txt";
+        String questions = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Questions.txt";
         Stream<String> tempAnswer = Files.lines(Paths.get(questions));
 
 
@@ -29,7 +29,7 @@ public class Quiz {
     }
 
     public void getCorrectAnswer(String answerNumber) throws IOException {
-        String questions = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\Files\\Questions.txt";
+        String questions = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Questions.txt";
         Stream<String> tempAnswer = Files.lines(Paths.get(questions));
 
         tempAnswer
@@ -39,7 +39,7 @@ public class Quiz {
     }
 
     public void getQuestions(String questionNumber) throws IOException {
-        String questions = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\Files\\Questions.txt";
+        String questions = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Questions.txt";
         Stream<String> tempQuestion = Files.lines(Paths.get(questions));
 
         tempQuestion
