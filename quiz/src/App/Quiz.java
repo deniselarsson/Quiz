@@ -3,17 +3,18 @@ import java.io.IOException;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.stream.Stream;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.regex.Pattern;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class Quiz {
     // Klass Quiz
     //Ni ska skapa en klass som håller reda på frågor, svarsalternativ och vilket svarsalternativ som är rätt.
+
+    Scanner scanner = new Scanner(System.in);
+
+    String questions_txt = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Questions.txt";
+    String answers_txt = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Answers.txt";
+    String options_txt = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Options.txt";
 
 
     public Quiz() throws IOException {
@@ -21,8 +22,7 @@ public class Quiz {
 
 
     public void answerAlternatives(String alternativeNumber) throws IOException {
-        String questions = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Questions.txt";
-        Stream<String> tempAnswer = Files.lines(Paths.get(questions));
+        Stream<String> tempAnswer = Files.lines(Paths.get(options_txt));
 
 
         tempAnswer
@@ -33,18 +33,23 @@ public class Quiz {
     }
 
     public void getCorrectAnswer(String answerNumber) throws IOException {
-        String questions = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Questions.txt";
-        Stream<String> tempAnswer = Files.lines(Paths.get(questions));
+        Stream<String> tempAnswer = Files.lines(Paths.get(answers_txt));
+
+        System.out.println("Choose your answer");
+        String userInput = scanner.nextLine();
 
         tempAnswer
-                .filter(x -> x.contains(answerNumber + " " + "ANSWER"))
-                .forEach(x -> System.out.println(x));
+                .filter(x -> { boolean y;
+                    y = x.contains(answerNumber + " " + "ANSWER");
+                    System.out.println(y);
+                    return y;
+                });
+        //.forEach(x -> System.out.println(x));
         tempAnswer.close();
     }
 
     public void getQuestions(String questionNumber) throws IOException {
-        String questions = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Questions.txt";
-        Stream<String> tempQuestion = Files.lines(Paths.get(questions));
+        Stream<String> tempQuestion = Files.lines(Paths.get(questions_txt));
 
         tempQuestion
                 .filter(x -> x.contains("?") && x.contains(questionNumber))
