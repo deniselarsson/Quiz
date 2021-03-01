@@ -28,8 +28,34 @@ public class Quiz {
     }
 
 
-    public void getCorrectAnswer(String answerNumber) throws IOException {
-        Stream<String> tempAnswer = Files.lines(Paths.get(answers_txt));
+    public void getCorrectAnswer(String questionNumber) throws IOException {
+
+        String y = readAllBytesJava7(answers_txt);
+
+        String[] x = y.split("\\.");
+
+        int questionNumberParsed = Integer.parseInt(questionNumber);
+
+        System.out.println("Det rätta svaret var: " + x[questionNumberParsed]);
+
+    }
+
+    private static String readAllBytesJava7(String filePath)
+    {
+        String content = "";
+
+        try
+        {
+            content = new String ( Files.readAllBytes( Paths.get(filePath) ) );
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return content;
+
+        /*Stream<String> tempAnswer = Files.lines(Paths.get(answers_txt));
 
         System.out.println("Choose your answer");
         String userInput = scanner.nextLine();
@@ -42,7 +68,7 @@ public class Quiz {
                 });
                 //.forEach(x -> System.out.println(x));
         tempAnswer.close();
-
+        */
     }
 
     public void getQuestions(String questionNumber) throws IOException {
