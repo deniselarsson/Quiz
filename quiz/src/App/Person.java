@@ -2,6 +2,8 @@ package App;
 
 public abstract class Person {
 
+    // Abstrakt klass person
+
     private String name;
     private int age;
     private String mail;
