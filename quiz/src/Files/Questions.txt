@@ -1,44 +1,13 @@
 Q 1 - Which of the following is not a keyword in java?
 
-    1A - static
-
-    1B - Boolean
-
-    1C - void
-
-    1D - private
-
-    1 ANSWER: B
-
 Q 2 - What is the size of boolean variable?
-
-    A - 8 bit
-
-    B - 16 bit
-
-    C - 32 bit
-
-    D - not precisely defined
 
 Q 3 - What is the default value of char variable?
 
-    A - '\u0000'
-
-    B - 0
-
-    C - null
-
-    D - not defined
 
 Q 4 - Which of the following is true about String?
 
-    A - String is mutable.
 
-    B - String is immutable.
-
-    C - String is a data type.
-
-    D - None of the above.
 
 Q 5 - What is class variable?
 

@@ -1,0 +1,4 @@
+1A - static, 1B - Boolean, 1C - void, 1D - private
+2A - 8 bit, 2B - 16 bit, 2C - 32 bit, 2D - not precisely defined
+3A - '\u0000', 3B - 0, 3C - null, 3D - not defined
+4A - String is mutable, 4B - String is immutable, 4C - String is a data type, 4D - None of the above.
