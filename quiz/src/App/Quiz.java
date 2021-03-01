@@ -1,4 +1,9 @@
 package App;
+import java.io.IOException;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,7 +14,6 @@ import java.util.stream.Stream;
 public class Quiz {
     // Klass Quiz
     //Ni ska skapa en klass som håller reda på frågor, svarsalternativ och vilket svarsalternativ som är rätt.
-
 
 
     public Quiz() throws IOException {
@@ -49,8 +53,7 @@ public class Quiz {
     }
 
     //Den ska också innehålla en metod som ska läsa in de serialiserade frågeobjekten från en fil.
-    public void readSerializedObjects(){
-
-    }
+    public void readSerializedObjects(){}
+ 
 }
 
