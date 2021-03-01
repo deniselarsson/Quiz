@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 public class Quiz {
     // Klass Quiz
     //Ni ska skapa en klass som håller reda på frågor, svarsalternativ och vilket svarsalternativ som är rätt.
+
     Scanner scanner = new Scanner(System.in);
 
 
@@ -16,31 +17,36 @@ public class Quiz {
     String answers_txt = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Answers.txt";
     String options_txt = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Options.txt";
 
-    public void answerAlternatives(String alternativeNumber) throws IOException {
+    public void answerAlternatives(int alternativeNumber) throws IOException {
 
-        Stream<String> tempAnswer = Files.lines(Paths.get(options_txt));
+        String y = byteToString(options_txt);
+
+        String[] x = y.split(";");
+
+        System.out.println(x[alternativeNumber-1]);
+
+
+        /*Stream<String> tempAnswer = Files.lines(Paths.get(options_txt));
 
         tempAnswer
                 .filter(x -> x.contains(alternativeNumber + "A") || x.contains(alternativeNumber +"B") || x.contains(alternativeNumber +"C") || x.contains(alternativeNumber + "D"))
                 .forEach(x -> System.out.println(x));
         tempAnswer.close();
-
+        */
     }
 
 
-    public void getCorrectAnswer(String questionNumber) throws IOException {
+    public void getCorrectAnswer(int questionNumber) throws IOException {
 
-        String y = readAllBytesJava7(answers_txt);
+        String y = byteToString(answers_txt);
 
         String[] x = y.split("\\.");
 
-        int questionNumberParsed = Integer.parseInt(questionNumber);
-
-        System.out.println("Det rätta svaret var: " + x[questionNumberParsed]);
+        System.out.println("Det rätta svaret var: " + x[questionNumber - 1]);
 
     }
 
-    private static String readAllBytesJava7(String filePath)
+    private static String byteToString(String filePath)
     {
         String content = "";
 
@@ -71,13 +77,24 @@ public class Quiz {
         */
     }
 
-    public void getQuestions(String questionNumber) throws IOException {
-        Stream<String> tempQuestion = Files.lines(Paths.get(questions_txt));
+    public void getQuestions(int questionNumber) throws IOException {
+
+        String y = byteToString(questions_txt);
+
+        String[] x = y.split(";");
+
+        System.out.println(x[questionNumber - 1]);
+
+
+
+
+       /*Stream<String> tempQuestion = Files.lines(Paths.get(questions_txt));
 
         tempQuestion
                 .filter(x -> x.contains("?") && x.contains(questionNumber))
                 .forEach(x -> System.out.println(x));
         tempQuestion.close();
+        */
     }
 
     //Den ska också innehålla en metod som ska läsa in de serialiserade frågeobjekten från en fil.
