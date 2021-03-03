@@ -1,28 +1,23 @@
+
 package app;
+
+import java.io.IOException;
 
 public abstract class Person {
 
     // Abstrakt klass person
 
-    private String name;
-    private int age;
-    private String mail;
+    protected String name;
+    protected int age;
+    protected String mail;
 
     Person (String newName, int newAge, String newMail){
         this.name = newName;
         this.age = newAge;
         this.mail = newMail;
     }
+    Person(){}
 
-    public String getName(){
-        return this.name;
-    }
+    public void addPerson() throws IOException {}
 
-    public int getAge(){
-        return this.age;
-    }
-
-    public String getMail(){
-        return this.mail;
-    }
 }

@@ -1,3 +1,4 @@
+
 package app;
 
 import java.io.IOException;
@@ -9,7 +10,10 @@ public class Main {
 
         myQuiz.getQuestions(1);
         myQuiz.answerAlternatives(1);
-        myQuiz.getCorrectAnswer(1);
+        myQuiz.getCorrectAnswer(2);
+
+        PlayerManager myPM = new PlayerManager();
+        myPM.startUp();
 
     }
 }
