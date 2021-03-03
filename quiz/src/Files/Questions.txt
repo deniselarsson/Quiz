@@ -1,71 +1,10 @@
-Q 1 - Which of the following is not a keyword in java?
-
-Q 2 - What is the size of boolean variable?
-
-Q 3 - What is the default value of char variable?
-
-
-Q 4 - Which of the following is true about String?
-
-
-
-Q 5 - What is class variable?
-
-    A - class variables are static variables within a class but outside any method.
-
-    B - class variables are variables defined inside methods, constructors or blocks.
-
-    C - class variables are variables within a class but outside any method.
-
-    D - None of the above.
-
-Q 6 - What is an applet?
-
-    A - An applet is a Java program that runs in a Web browser.
-
-    B - Applet is a standalone java program.
-
-    C - Applet is a tool.
-
-    D - Applet is a run time environment.
-
-Q 7 - What is function overloading?
-
-    A - Methods with same name but different parameters.
-
-    B - Methods with same name but different return types.
-
-    C - Methods with same name, same parameter types but different parameter names.
-
-    D - None of the above.
-
-Q 8 - Which is the way in which a thread can enter the waiting state?
-
-    A - Invoke its sleep() method.
-
-    B - invoke object's wait method.
-
-    C - Invoke its suspend() method.
-
-    D - All of the above.
-
-Q 9 - What will happen if static modifier is removed from the signature of the main method?
-
-    A - Compilation Error.
-
-    B - RunTime Error: NoSuchMethodError.
-
-    C - Program will compile and run without any output.
-
-    D - Program will compile and run to show the required output.
-
-Q 10 - What is currentThread()?
-
-    A - It is a Thread public static method used to obtain a reference to the current thread.
-
-    B - It is a thread's instance method used to get thread count.
-
-    C - It is a object's public static method used obtain a reference to the current thread.
-
-    D - It is a object's instance method used to get thread count.
-
+Q 1 - Which of the following is not a keyword in java? ;
+Q 2 - What is the size of boolean variable? ;
+Q 3 - What is the default value of char variable? ;
+Q 4 - Which of the following is true about String? ;
+Q 5 - What is class variable? ;
+Q 6 - What is an applet? ;
+Q 7 - What is function overloading? ;
+Q 8 - Which is the way in which a thread can enter the waiting state? ;
+Q 9 - What will happen if static modifier is removed from the signature of the main method? ;
+Q 10 - What is currentThread()? ;
