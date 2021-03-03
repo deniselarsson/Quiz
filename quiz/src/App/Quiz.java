@@ -25,14 +25,6 @@ public class Quiz {
 
         System.out.println(x[alternativeNumber-1]);
 
-
-        /*Stream<String> tempAnswer = Files.lines(Paths.get(options_txt));
-
-        tempAnswer
-                .filter(x -> x.contains(alternativeNumber + "A") || x.contains(alternativeNumber +"B") || x.contains(alternativeNumber +"C") || x.contains(alternativeNumber + "D"))
-                .forEach(x -> System.out.println(x));
-        tempAnswer.close();
-        */
     }
 
 
@@ -61,20 +53,6 @@ public class Quiz {
 
         return content;
 
-        /*Stream<String> tempAnswer = Files.lines(Paths.get(answers_txt));
-
-        System.out.println("Choose your answer");
-        String userInput = scanner.nextLine();
-
-        tempAnswer
-                .filter(x -> { boolean y;
-                    y = x.contains(answerNumber + " " + "ANSWER");
-                    System.out.println(y);
-                    return y;
-                });
-                //.forEach(x -> System.out.println(x));
-        tempAnswer.close();
-        */
     }
 
     public void getQuestions(int questionNumber) throws IOException {
@@ -85,16 +63,6 @@ public class Quiz {
 
         System.out.println(x[questionNumber - 1]);
 
-
-
-
-       /*Stream<String> tempQuestion = Files.lines(Paths.get(questions_txt));
-
-        tempQuestion
-                .filter(x -> x.contains("?") && x.contains(questionNumber))
-                .forEach(x -> System.out.println(x));
-        tempQuestion.close();
-        */
     }
 
     //Den ska också innehålla en metod som ska läsa in de serialiserade frågeobjekten från en fil.

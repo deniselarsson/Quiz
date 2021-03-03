@@ -10,7 +10,7 @@ public class Main {
 
         myQuiz.getQuestions(1);
         myQuiz.answerAlternatives(1);
-        myQuiz.getCorrectAnswer(1);
+        myQuiz.getCorrectAnswer(2);
 
     }
 }
