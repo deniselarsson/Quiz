@@ -1,7 +1,6 @@
-package App;
+package app;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Main {
 
