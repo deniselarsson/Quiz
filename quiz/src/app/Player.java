@@ -18,8 +18,6 @@ public class Player extends Person {
         super(newName, newAge, newMail);
     }
 
-
-
     @Override
     public void addPerson() throws IOException {
         Scanner myScan = new Scanner(System.in);

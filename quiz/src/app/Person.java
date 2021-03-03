@@ -5,8 +5,6 @@ import java.io.IOException;
 
 public abstract class Person {
 
-    // Abstrakt klass person
-
     protected String name;
     protected int age;
     protected String mail;
