@@ -31,6 +31,7 @@ public class Main {
         questions.add(question);
         FileHandler.writeQuestions(questions);
         question.options.addAll(creatOptions());
+        FileHandler.readQuestions();
        */
     }
 }
