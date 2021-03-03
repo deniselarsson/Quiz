@@ -1,16 +1,13 @@
-package App;
+package app;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class Quiz {
     // Klass Quiz
     //Ni ska skapa en klass som håller reda på frågor, svarsalternativ och vilket svarsalternativ som är rätt.
-
-    Scanner scanner = new Scanner(System.in);
 
 
     String questions_txt = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Questions.txt";
@@ -63,6 +60,16 @@ public class Quiz {
 
         System.out.println(x[questionNumber - 1]);
 
+    }
+
+    public void startJavaQuiz() throws IOException {
+        String myQuiz = "...\\file\\Quiz.md";
+        Stream<String> tempQuiz = Files.lines(Paths.get(myQuiz));
+
+        tempQuiz
+                .filter(x -> x.contains("Java"))
+                .forEach(System.out::println);
+        tempQuiz.close();
     }
 
     //Den ska också innehålla en metod som ska läsa in de serialiserade frågeobjekten från en fil.
