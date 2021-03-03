@@ -24,14 +24,12 @@ public class Main {
         myQuiz.getCorrectAnswer(2);
 
         /********************SERIALIZATION**********************************/
-      /*  ArrayList<Question> questions = FileHandler.readQuestions();
-
+        ArrayList<Question> questions = FileHandler.readQuestions();
 
         Question question = createQuestion();
         questions.add(question);
         FileHandler.writeQuestions(questions);
         question.options.addAll(creatOptions());
         FileHandler.readQuestions();
-       */
     }
 }
