@@ -1,6 +1,4 @@
-#Java Quiz
-####Group 1: Axel, Benjamin, Denise, Felicia, Saleh
-Advanced Java programming project
+#Java Quiz ####Group 1: Axel, Benjamin, Denise, Felicia, Saleh Advanced Java programming project
 
 ###Assignment description
 
@@ -28,17 +26,14 @@ Ni får jobba med projektet i era grupper, men var och en ska göra en individue
 
 Kursen omfattar enligt kursplanen följande moment
 
-    Lambdauttryck
-    Streams
-    Regular expressions
-    Serialisering
-    Date and time
-    Avancerad objektorientering
-    Threads
-    Annotations
-    Reflection
-    Design patterns 
-
-
-
+Lambdauttryck
+Streams
+Regular expressions
+Serialisering
+Date and time
+Avancerad objektorientering
+Threads
+Annotations
+Reflection
+Design patterns 
 ###Rules
