@@ -6,11 +6,12 @@ Frågesport
 
 Vi ska bygga en applikation för frågesport där man på samma dator får turas om mellan två spelare att svara på frågor.
 
+
 Ni ska skapa en klass som håller reda på frågor, svarsalternativ och vilket svarsalternativ som är rätt. Den ska också innehålla en metod som ska läsa in de serialiserade frågeobjekten från en fil.
 
-Ni ska skapa den apstrakta klassen Person som ska innehålla en persons namn, ålder och epost.
+Ni ska skapa den abstrakta klassen Person som ska innehålla en persons namn, ålder och epost.
 
-Ni ska implementera den konkreta klassen Player som extendar Person och lägger till hantering av variablerna score och played_games. Varje gång spelaren spelar ett spel ska played_games ökas på med 1 och om användaren vinner matchen ska score ökas med 1.
+Ni ska implementera den konkreta klassen Player som extend Person och lägger till hantering av variablerna score och played_games. Varje gång spelaren spelar ett spel ska played_games ökas på med 1 och om användaren vinner matchen ska score ökas med 1.
 
 Ni ska skapa hjälpprogram som låter er hantera frågor. Ni ska med hjälp av programmet kunna lista frågor, lägga till nya frågor, ta bort frågor och eventuellt redigera frågor. Lägger man till frågor ska programmet fråga efter frågan och minst tre svarsalternativ. Efter varje svarsalternativ ska användaren få ange om svarsalternativet är korrekt eller inte. Programmet ska spara frågorna till en fil med serialiserade objekt.
 
@@ -35,5 +36,12 @@ Avancerad objektorientering
 Threads
 Annotations
 Reflection
-Design patterns 
+Design patterns;
 ###Rules
+
+###Serialization
+Questioin spara 
+Option organisera options
+FileHandler readQuestion läser och writeQuestion skriver ut option hanterar det som kommer från konsolen och lägger till i fil
+
+Helper readQuestion
