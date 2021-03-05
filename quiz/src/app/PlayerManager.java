@@ -12,7 +12,7 @@ public class PlayerManager {
     public void startUp() throws IOException {
         /* Objects created from
         a. library class SCANNER named mySc
-        b. class Player named myPlayer */
+        b. class Player named myP */
         Scanner mySc = new Scanner(System.in);
         Player myP = new Player();
 
