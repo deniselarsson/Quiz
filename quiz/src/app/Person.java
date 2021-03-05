@@ -10,9 +10,6 @@ public abstract class Person {
     protected int age;
     protected String mail;
 
-    /* Empty constructor for overloading the constructor above */
-    Person(){}
-
     /* Constructor demanding a name, age and mail */
     Person (String newName, int newAge, String newMail){
         this.name = newName;

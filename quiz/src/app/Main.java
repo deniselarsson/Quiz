@@ -7,8 +7,7 @@ public class Main {
 
     public static void main (String []args) {
         Scanner mySc = new Scanner(System.in);
-        Player myP = new Player();
-        QuizManager myQM = new QuizManager();
+
         while (true) {
             System.out.println("WELCOME");
             System.out.println("[1] PLAY");

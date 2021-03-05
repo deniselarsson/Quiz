@@ -13,9 +13,6 @@ public class Player extends Person {
     /* An arrayList holding class Player named myPlayerList */
     ArrayList<Player> myPlayerList = new ArrayList<>();
 
-    /* Overloading with an empty constructor */
-    Player(){}
-
     /* A constructor */
     Player(String newName, int newAge, String newMail) {
         super(newName, newAge, newMail);
@@ -54,15 +51,7 @@ public class Player extends Person {
         /* Adding the new users name, age and mail to the arrayList holding the class Player. OBS! Need to be serialized with the file Users.md */
         myPlayerList.add(new Player(aName, aAge, aMail));
 
-        /* A if else part telling the program to print a welcome message if age is more than 0 to prevent the user to enter for example -10 years old */
-        if (aAge >= 0) {
-            System.out.println("Welcome " + aName);
-            myGM.playOption();
-        } else {
-            /* Telling the program that the age that was entered isn't a possible age */
-            System.out.println( aAge + " cant be an correct age, try again!");
-        }
-    }
+            }
 
     /* Enables to send the name, age, mail, score and number of played games to other classes without altering the variables */
     public String getName() {

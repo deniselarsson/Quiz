@@ -9,9 +9,6 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class Quiz implements Serializable {
-    public void getQuizzes(){
-        System.out.println("Quiz");
-    }
+public class Quiz {
 }
 
