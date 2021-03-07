@@ -45,9 +45,11 @@ public class Welcome {
 
         int inputNumber = Integer.parseInt(number.nextLine());
 
+        //Om användaren skriver in 1 skapa metoden en ny fråga till filen
         if (inputNumber == 1){
             Question.setNewQuestion();
         }
+        //Om använadren skriver in 2 visa alla frågor och fråga vilken dem vill radera
         if (inputNumber == 2){
             Helper.printText("Which question do you want to delete?");
             Question.printAllQuestions(FileHandler.readQuestions());
