@@ -4,11 +4,9 @@ public class Welcome {
 
     public static void start () {
 
-        Helper.printText("WELCOME");
-
         Scanner input = new Scanner(System.in);
 
-        Helper.printText("--------WELCOME!-----------");
+        Helper.printText("----------- WELCOME! -----------");
         Helper.printText("[1] PLAY");
         Helper.printText("[2] QUIZZES");
         Helper.printText("[3] EXIT");
@@ -31,11 +29,11 @@ public class Welcome {
 
     public static void play(){
 
-        Helper.printText("Player 1:");
+        Helper.printText("----------- Player 1 -----------");
         Player.playerInfo();
-        Helper.printText("Player 2:");
+        Helper.printText("----------- Player 2 -----------");
         Player.playerInfo();
-        Helper.printText("The game start!");
+        Helper.printText("----------- The game start! -----------");
     }
 
     public static void quizzes(){
@@ -57,6 +55,6 @@ public class Welcome {
     }
 
     public static void exit(){
-        Helper.printText("The game stopped!");
+        Helper.printText("----------- The game stopped! -----------");
     }
 }
