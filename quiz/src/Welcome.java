@@ -1,8 +1,9 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Welcome {
 
-    public static void start () {
+    public static void start () throws IOException {
 
         Scanner input = new Scanner(System.in);
 
@@ -16,10 +17,11 @@ public class Welcome {
         //Om användaren skriver in 1 gå den till metoden play
         if (inputNumber == 1) {
             play();
+            Timer.setTimer();
         }
         //Om användaren skriver in 2 gå den till metoden quizzes
         else if (inputNumber == 2) {
-           quizzes();
+            quizzes();
         }
         //Om användaren skriver in 3 gå den till metoden exit
         else if (inputNumber == 3) {
@@ -27,16 +29,21 @@ public class Welcome {
         }
     }
 
-    public static void play(){
+    public static void play () throws IOException {
 
         Helper.printText("----------- Player 1 -----------");
         Player.playerInfo();
         Helper.printText("----------- Player 2 -----------");
         Player.playerInfo();
         Helper.printText("----------- The game start! -----------");
+
+        Quiz myQuiz = new Quiz();
+        myQuiz.getQuestions(1);
+        myQuiz.answerAlternatives(1);
+        myQuiz.getCorrectAnswer(2);
     }
 
-    public static void quizzes(){
+    public static void quizzes () {
 
         Scanner number = new Scanner(System.in);
 
@@ -46,17 +53,17 @@ public class Welcome {
         int inputNumber = Integer.parseInt(number.nextLine());
 
         //Om användaren skriver in 1 skapa metoden en ny fråga till filen
-        if (inputNumber == 1){
+        if (inputNumber == 1) {
             Question.setNewQuestion();
         }
         //Om använadren skriver in 2 visa alla frågor och fråga vilken dem vill radera
-        if (inputNumber == 2){
+        if (inputNumber == 2) {
             Helper.printText("Which question do you want to delete?");
             Question.printAllQuestions(FileHandler.readQuestions());
         }
     }
 
-    public static void exit(){
+    public static void exit () {
         Helper.printText("----------- The game stopped! -----------");
     }
 }

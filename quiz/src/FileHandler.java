@@ -12,7 +12,7 @@ public class FileHandler {
         return result;
     }
 
-    //Skriver ut filen från minnet
+    //Skriver ut objektet  från minnet till en fil
     private static void write (String fileName, Object object) {
 
         try {
