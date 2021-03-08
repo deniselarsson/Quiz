@@ -7,9 +7,6 @@ import java.util.regex.Pattern;
 
 public class Main {
     public static void main (String []args) throws IOException, InterruptedException {
-
-
-
         Scanner scanner = new Scanner(System.in);
 
         Player player1 = new Player();
@@ -31,7 +28,7 @@ public class Main {
                 Player.showStats(player2);
                 break;
             case "2":
-                System.out.println("Quiz time");
+                System.out.println("Quiz edit");
                 break;
             case "3":
                 System.exit(0);
@@ -41,6 +38,7 @@ public class Main {
         }
     }
 
+    // Startar quiz och loopar så att den går igenom alla 6 frågor
     public static void startQuiz(int i) throws IOException, InterruptedException {
         Quiz quiz = new Quiz();
         for ( ;i < 6; i++){

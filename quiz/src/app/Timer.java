@@ -14,18 +14,19 @@ public class Timer {
     public  void timer(int questionNumber) {
         System.out.println("You have 5 seconds to answer");
         timer.schedule(new TimerTask() {
-            int i = 6;
+            // variabel för antalet sekunder per fråga
+            int sec = 6;
             @Override
             public void run() {
-                i--;
+                sec--;
                 /*System.out.print("\b\b\b\b\b\b");
                 System.out.print(i);*/
-                if (i == 0){
+                if (sec == 0){
                     System.out.print("\b");
                     System.out.println("TIME'S UP!");
                     timer.cancel();
                     try {
-                        quiz.getCorrectAnswer(questionNumber, 'f');
+                        quiz.getCorrectAnswer(questionNumber, "f");
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
