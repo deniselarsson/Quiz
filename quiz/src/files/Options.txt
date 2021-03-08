@@ -1,0 +1,14 @@
+A - static, B - Boolean, C - void, D - private ;
+A - 8 bit, B - 16 bit, C - 32 bit, D - not precisely defined ;
+A - '\u0000', B - 0, C - null, D - not defined ;
+A - String is mutable, B - String is immutable, C - String is a data type, D - None of the above. ;
+
+A - class variables are static variables within a class but outside any method.
+B - class variables are variables defined inside methods, constructors or blocks.
+C - class variables are variables within a class but outside any method.
+D - None of the above. ;
+
+A - An applet is a Java program that runs in a Web browser.
+B - Applet is a standalone java program.
+C - Applet is a tool.
+D - Applet is a run time environment. ;

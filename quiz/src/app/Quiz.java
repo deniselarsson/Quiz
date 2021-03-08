@@ -1,20 +1,35 @@
 package app;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class Quiz {
-    // Klass Quiz
-    //Ni ska skapa en klass som håller reda på frågor, svarsalternativ och vilket svarsalternativ som är rätt.
+
+    Scanner scanner = new Scanner(System.in);
+
+    String questions_txt = "C:\\Users\\Axel\\Desktop\\Skolrelaterat\\Quiz-Felicia\\quiz\\src\\files\\Questions.txt";
+    String answers_txt = "C:\\Users\\Axel\\Desktop\\Skolrelaterat\\Quiz-Felicia\\quiz\\src\\files\\Answers.txt";
+    String options_txt = "C:\\Users\\Axel\\Desktop\\Skolrelaterat\\Quiz-Felicia\\quiz\\src\\files\\Options.txt";
+
+    public void getQuestions(int questionNumber) throws IOException, InterruptedException {
+
+        String y = byteToString(questions_txt);
+
+        String[] x = y.split(";");
+
+        System.out.println(x[questionNumber - 1]);
+
+        answerAlternatives(questionNumber);
+    }
 
 
-    String questions_txt = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Questions.txt";
-    String answers_txt = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Answers.txt";
-    String options_txt = "C:/Users/Axel/IdeaProjects/Quiz/quiz/src/Files/Options.txt";
-
-    public void answerAlternatives(int alternativeNumber) throws IOException {
+    public void answerAlternatives(int alternativeNumber) throws IOException, InterruptedException {
 
         String y = byteToString(options_txt);
 
@@ -22,16 +37,39 @@ public class Quiz {
 
         System.out.println(x[alternativeNumber-1]);
 
+        Timer timer = new Timer();
+
+        timer.timer(alternativeNumber);
+        char userAnswer = scanner.nextLine().charAt(0);
+        timer.timerStop();
+
+
+        getCorrectAnswer(alternativeNumber, userAnswer);
+
     }
 
 
-    public void getCorrectAnswer(int questionNumber) throws IOException {
+    public void getCorrectAnswer(int questionNumber, char userAnswer) throws IOException, InterruptedException {
 
         String y = byteToString(answers_txt);
 
         String[] x = y.split("\\.");
 
-        System.out.println("Det rätta svaret var: " + x[questionNumber - 1]);
+
+        String lastWord1 = x[questionNumber - 1].substring(x[questionNumber - 1].lastIndexOf(" ")+1);
+        char lastWord = lastWord1.charAt(0);
+
+        if (userAnswer == lastWord){
+            System.out.println("Rätt!");
+            System.out.println();
+        } else {
+            System.out.println("Fel, rätt svar var: " + lastWord);
+            System.out.println();
+        }
+
+        System.out.println("Now the next question is coming, get ready!");
+        Thread.sleep(5000);
+        Main.startQuiz(questionNumber + 1);
 
     }
 
@@ -52,29 +90,5 @@ public class Quiz {
 
     }
 
-    public void getQuestions(int questionNumber) throws IOException {
-
-        String y = byteToString(questions_txt);
-
-        String[] x = y.split(";");
-
-        System.out.println(x[questionNumber - 1]);
-
-    }
-
-    public void startJavaQuiz() throws IOException {
-        String myQuiz = "...\\file\\Quiz.md";
-        Stream<String> tempQuiz = Files.lines(Paths.get(myQuiz));
-
-        tempQuiz
-                .filter(x -> x.contains("Java"))
-                .forEach(System.out::println);
-        tempQuiz.close();
-    }
-
-    //Den ska också innehålla en metod som ska läsa in de serialiserade frågeobjekten från en fil.
-    public void readSerializedObjects(){
-
-    }
 }
 

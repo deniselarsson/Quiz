@@ -1,46 +1,6 @@
 package app;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Scanner;
-import java.util.stream.Stream;
-
 public class QuizManager {
-    public void quizOption() throws IOException {
-        Scanner myScan = new Scanner(System.in);
-        while (true) {
-            System.out.println("        Choose Quiz       \n");
-            System.out.println(" [1] Java");
-            System.out.println(" [2] Custom");
-            System.out.println(" [0] Return");
-            System.out.println(" - - - - - - - - - - - - - - - ");
-            char aInput = myScan.next().charAt(0);
-
-            switch (aInput) {
-                case '1' -> displayJavaQuiz();
-                case '2' -> displayCustomQuiz();
-                case '0' -> {
-                    return;
-                }
-                default -> System.out.println("Invalid input, try again!");
-            }
-        }
-    }
-
-    public void displayJavaQuiz() throws IOException {
-        Quiz myJavaQuiz = new Quiz();
-        myJavaQuiz.startJavaQuiz();
-    }
-
-    public void displayCustomQuiz() throws IOException {
-        String playerQuiz_md = "...\\file\\Quiz.md";
-        Stream<String> tempPlayerQuiz = Files.lines(Paths.get(playerQuiz_md));
-        tempPlayerQuiz
-                .filter(x -> x.contains("Custom"))
-                .forEach(System.out::println);
-        tempPlayerQuiz.close();
-    }
 }
 
 // handle questions

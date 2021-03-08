@@ -1,0 +1,6 @@
+Q 1 - Which of the following is not a keyword in java? ;
+Q 2 - What is the size of boolean variable? ;
+Q 3 - What is the default value of char variable? ;
+Q 4 - Which of the following is true about String? ;
+Q 5 - What is class variable? ;
+Q 6 - What is an applet? ;
