@@ -1,15 +1,12 @@
 package app;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Timer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Player extends Person {
 
-    int score = 0;
+    int matchScore = 0;
     int played_games = 0;
 
     Player(String newName, int newAge, String newMail, int score, int played_games) {
@@ -20,17 +17,25 @@ public class Player extends Person {
         super();
     }
 
+
     public void addScore(){
-        score++;
+        matchScore++;
     }
 
     public void addPlayed_Games(){
         played_games++;
     }
 
+    public void countNumber(){
+        played_games++;
+    }
+
+
+
     public static void showStats(Player player){
         player.addPlayed_Games();
-        System.out.println(player.name + " has played "+player.played_games + " games");
+        System.out.println(player.name + " has played "+ player.played_games + " games");
+        System.out.println();
     }
 
     // Method that creates attributes for objects of the Player Class and then returns them in Object form

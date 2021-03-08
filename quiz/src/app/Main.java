@@ -2,8 +2,6 @@ package app;
 
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Main {
     public static void main (String []args) throws IOException, InterruptedException {
@@ -18,14 +16,14 @@ public class Main {
         System.out.println("[3] EXIT");
         String input = scanner.nextLine();
 
-
         switch (input){
             case "1":
-                /*player1 = Player.createPlayer("1");
-                player2 = Player.createPlayer("2");*/
+                //player1 = Player.createPlayer("1");
+                //player2 = Player.createPlayer("2");
                 startQuiz(1);
                 Player.showStats(player1);
                 Player.showStats(player2);
+
                 break;
             case "2":
                 System.out.println("Quiz edit");
@@ -41,7 +39,7 @@ public class Main {
     // Startar quiz och loopar så att den går igenom alla 6 frågor
     public static void startQuiz(int i) throws IOException, InterruptedException {
         Quiz quiz = new Quiz();
-        for ( ;i < 6; i++){
+        for ( ;i < 2; i++){
             quiz.getQuestions(i);
         }
     }

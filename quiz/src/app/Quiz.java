@@ -1,21 +1,17 @@
 package app;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class Quiz {
 
     Scanner scanner = new Scanner(System.in);
 
-    String questions_txt = "C:\\Users\\Axel\\Desktop\\Skolrelaterat\\Quiz-Felicia\\quiz\\src\\files\\Questions.txt";
-    String answers_txt = "C:\\Users\\Axel\\Desktop\\Skolrelaterat\\Quiz-Felicia\\quiz\\src\\files\\Answers.txt";
-    String options_txt = "C:\\Users\\Axel\\Desktop\\Skolrelaterat\\Quiz-Felicia\\quiz\\src\\files\\Options.txt";
+    String questions_txt = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\files\\Questions.txt";
+    String answers_txt = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\files\\Answers.txt";
+    String options_txt = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\files\\Options.txt";
 
     // Skriver ut frågan från textfilen
     public void getQuestions(int questionNumber) throws IOException, InterruptedException {
@@ -68,6 +64,7 @@ public class Quiz {
         if (userAnswer.equals(lastWord)){
             System.out.println("Rätt!");
             System.out.println();
+            addPoints();
         } else {
             System.out.println("Fel, rätt svar var: " + lastWord);
             System.out.println();
@@ -75,8 +72,12 @@ public class Quiz {
 
         // Sleepar threaden så att spelare har tid att förbereda sig inför nästa fråga
         System.out.println("Now the next question is coming, get ready!");
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
         Main.startQuiz(questionNumber + 1);
+
+    }
+
+    public void addPoints(){
 
     }
 
@@ -96,6 +97,8 @@ public class Quiz {
         return content;
 
     }
+
+
 
 }
 

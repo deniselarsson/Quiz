@@ -1,9 +1,6 @@
 package app;
 
 import java.io.IOException;
-import java.time.Duration;
-import java.time.LocalTime;
-import java.util.Scanner;
 import java.util.TimerTask;
 
 public class Timer {
@@ -19,8 +16,8 @@ public class Timer {
             @Override
             public void run() {
                 sec--;
-                /*System.out.print("\b\b\b\b\b\b");
-                System.out.print(i);*/
+                /*System.out.print("\b\b\b\b\b\b\b\b");
+                System.out.print(sec);*/
                 if (sec == 0){
                     System.out.print("\b");
                     System.out.println("TIME'S UP!");
