@@ -6,36 +6,31 @@ import java.util.regex.Pattern;
 
 public class Player extends Person {
 
-    int matchScore = 0;
+    int score = 0;
     int played_games = 0;
 
     Player(String newName, int newAge, String newMail, int score, int played_games) {
         super(newName, newAge, newMail);
+        this.score = score;
+        this.played_games = played_games;
     }
 
     public Player() {
         super();
     }
 
-
     public void addScore(){
-        matchScore++;
+        score++;
     }
 
     public void addPlayed_Games(){
         played_games++;
     }
 
-    public void countNumber(){
-        played_games++;
-    }
-
-
 
     public static void showStats(Player player){
-        player.addPlayed_Games();
-        System.out.println(player.name + " has played "+ player.played_games + " games");
         System.out.println();
+        System.out.println(player.name + " has played "+ player.played_games + " games and won " + player.score + " games" );
     }
 
     // Method that creates attributes for objects of the Player Class and then returns them in Object form

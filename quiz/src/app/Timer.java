@@ -21,9 +21,11 @@ public class Timer {
                 if (sec == 0){
                     System.out.print("\b");
                     System.out.println("TIME'S UP!");
+                    // Stannar timern ifall tiden tar slut
                     timer.cancel();
+                    // Gör så att tråden går vidare till nästa metod och jämför svaret
                     try {
-                        quiz.getCorrectAnswer(questionNumber, "f");
+                        quiz.getCorrectAnswer(questionNumber, "fel");
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {

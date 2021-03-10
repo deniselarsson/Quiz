@@ -6,12 +6,21 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Quiz {
+    int player1Correct = 0;
+    int player2Correct = 0;
 
     Scanner scanner = new Scanner(System.in);
 
     String questions_txt = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\files\\Questions.txt";
     String answers_txt = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\files\\Answers.txt";
     String options_txt = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\files\\Options.txt";
+
+    // Startar quiz och loopar så att den går igenom alla 6 frågor
+    public void startQuiz(int i) throws IOException, InterruptedException {
+        for ( ;i < 7; i++){
+            getQuestions(i);
+        }
+    }
 
     // Skriver ut frågan från textfilen
     public void getQuestions(int questionNumber) throws IOException, InterruptedException {
@@ -64,22 +73,27 @@ public class Quiz {
         if (userAnswer.equals(lastWord)){
             System.out.println("Rätt!");
             System.out.println();
-            addPoints();
+            if (questionNumber % 2 == 0){
+                player2Correct++;
+            } else {
+                player1Correct++;
+            }
         } else {
             System.out.println("Fel, rätt svar var: " + lastWord);
             System.out.println();
         }
 
         // Sleepar threaden så att spelare har tid att förbereda sig inför nästa fråga
-        System.out.println("Now the next question is coming, get ready!");
-        //Thread.sleep(5000);
-        Main.startQuiz(questionNumber + 1);
+        if (questionNumber < 6){
+            System.out.println("Now the next question is coming, get ready!");
+        } else{
+            System.out.println("We're finished!");
+        }
 
+        Thread.sleep(3000);
     }
 
-    public void addPoints(){
 
-    }
 
     private static String byteToString(String filePath)
     {
