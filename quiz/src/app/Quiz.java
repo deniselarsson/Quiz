@@ -6,8 +6,15 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Quiz {
+
     int player1Correct = 0;
     int player2Correct = 0;
+
+    // När man startar quizet resetas pointsen
+    public void resetPoints(){
+        player1Correct = 0;
+        player2Correct = 0;
+    }
 
     Scanner scanner = new Scanner(System.in);
 
@@ -17,6 +24,7 @@ public class Quiz {
 
     // Startar quiz och loopar så att den går igenom alla 6 frågor
     public void startQuiz(int i) throws IOException, InterruptedException {
+        resetPoints();
         for ( ;i < 7; i++){
             getQuestions(i);
         }
