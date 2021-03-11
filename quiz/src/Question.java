@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+//För att frågorna ska kunna serializeras till en fil måste objektet implementera Serializable interface
 public class Question implements Serializable {
 
     private String text;
