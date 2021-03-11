@@ -1,9 +1,8 @@
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Welcome {
 
-    public static void start () throws IOException {
+    public static void start ()  {
 
         Scanner input = new Scanner(System.in);
 
@@ -17,7 +16,7 @@ public class Welcome {
         //Om användaren skriver in 1 gå den till metoden play
         if (inputNumber == 1) {
             play();
-            Timer.setTimer();
+
         }
         //Om användaren skriver in 2 gå den till metoden quizzes
         else if (inputNumber == 2) {
@@ -29,18 +28,15 @@ public class Welcome {
         }
     }
 
-    public static void play () throws IOException {
+    public static void play ()  {
 
         Helper.printText("----------- Player 1 -----------");
         Player.playerInfo();
         Helper.printText("----------- Player 2 -----------");
         Player.playerInfo();
-        Helper.printText("----------- The game start! -----------");
+        Helper.printText("----------- The quiz start! -----------");
 
-        Quiz myQuiz = new Quiz();
-        myQuiz.getQuestions(1);
-        myQuiz.answerAlternatives(1);
-        myQuiz.getCorrectAnswer(2);
+        Question.printOneQuestion(FileHandler.readQuestions());
     }
 
     public static void quizzes () {

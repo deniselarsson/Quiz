@@ -45,7 +45,6 @@ public class Quiz {
         return content;
 
     }
-
     public void getQuestions(int questionNumber) throws IOException {
 
         String y = byteToString(questions_txt);

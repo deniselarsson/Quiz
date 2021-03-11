@@ -11,8 +11,12 @@ public class Question implements Serializable {
         this.text = text;
     }
 
-    public String getText(){
+    public String getText () {
         return text;
+    }
+
+    public String toString () {
+        return getText();
     }
 
     //Läser frågan från användaren
@@ -31,12 +35,12 @@ public class Question implements Serializable {
         return question;
     }
 
-    //Fråga använadren vilka  4 option och om svaret är rätt eller ej, sedan spara detta i en arraylista
+    //Skriv in option till frågan, och om svaret är rätt eller ej, sedan spara detta i en arraylista
     public static ArrayList<Option> createOptions () {
 
         ArrayList<Option> options = new ArrayList<>();
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 1; i++) {
 
             Scanner scan = new Scanner(System.in);
             System.out.println("Write your option: ");
@@ -66,5 +70,9 @@ public class Question implements Serializable {
         for (Question question : questions) {
             System.out.println(question.getText());
         }
+    }
+    //Skriver ut en fråga utifrån vilken index jag anropa
+    public static void printOneQuestion (ArrayList<Question> questions) {
+            System.out.println(questions.get(1));
     }
 }
