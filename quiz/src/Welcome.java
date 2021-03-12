@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Welcome {
 
-    public static void start ()  {
+    public static void start () {
 
         Scanner input = new Scanner(System.in);
 
@@ -15,6 +15,7 @@ public class Welcome {
 
         //Om användaren skriver in 1 gå den till metoden play
         if (inputNumber == 1) {
+
             play();
 
         }
@@ -28,7 +29,7 @@ public class Welcome {
         }
     }
 
-    public static void play ()  {
+    public static void play () {
 
         Helper.printText("----------- Player 1 -----------");
         Player.playerInfo();
@@ -37,6 +38,14 @@ public class Welcome {
         Helper.printText("----------- The quiz start! -----------");
 
         Question.printOneQuestion(FileHandler.readQuestions());
+        //TODO : Vi ska bygga en applikation för frågesport där man på samma dator får turas om mellan två spelare att svara på frågor.
+        //Varje gång spelaren spelar ett spel ska played_games ökas på med 1 och om användaren vinner matchen ska score ökas med 1.
+
+        //Själva frågesportspelet ska läsa in ett jämnt antal frågor (minst sex) FRÅN de serialiserade objekten och presentera varannan fråga
+        //för spelare 1 och varannan för spelare 2. Spelet ska hålla reda på hur många poäng respektiva spelare har samlat ihop.
+
+        //Spelet ska gå på tid. Antingen ska man bara ha en viss tid på sig att svara på frågorna, eller så ska den sammanlagda
+        //tiden vara utslagsgivande om spelarna har svarat rätt på lika många frågor.
     }
 
     public static void quizzes () {
