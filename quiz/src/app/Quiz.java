@@ -120,8 +120,41 @@ public class Quiz {
         return content;
 
     }
+    //Start the quiz where we read from the serialized object
+    public static void startTheQuiz () {
 
+        QuizManager quizManager = new QuizManager();
+        Timer timer = new Timer();
 
+        //Load the file
+        quizManager.load();
+        //Present the timer before question shows
+        timer.timer(0);
 
+        //get question index 0 which we declare a new variabel currentQuestion
+        Question currentQuestion = quizManager.questions.get(0);
+        //Print the first question from the file
+        QuizManager.printQuestion(currentQuestion);
+        //Print the 3 options
+        QuizManager.printOptions(currentQuestion.getOptions());
+
+        //Ask the user to write 1-3 for the correct answer
+        System.out.println("\nPlease enter you anwear:");
+
+        //Save the user input
+        Scanner scan = new Scanner(System.in);
+        //Save the user input
+        int userAnswer = Integer.parseInt(scan.nextLine()) - 1;
+
+        //compare the user input is the correct answer
+        Option option = currentQuestion.getOptions().get(userAnswer);
+
+        if (option.getIsCorrectAnswer()) {
+            System.out.println("CORRECT ANSWER!");
+        }
+        else {
+            System.out.println("WRONG ANSWER");
+        }
+    }
 }
 
