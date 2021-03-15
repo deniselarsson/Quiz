@@ -1,5 +1,6 @@
 package app;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -40,12 +41,12 @@ public class QuizManager implements Serializable {
     //Skriver in den nya frågan + options + om det är rätt eller fel svar till questions filen
     public static void setNewQuestion () {
 
-        ArrayList<QuizManager> questions = FileHandler.readQuestions();
+        ArrayList<QuizManager> questions = readQuestions();
         QuizManager question = createQuestion();
         questions.add(question);
-        FileHandler.writeQuestions(questions);
+        writeQuestions(questions);
         question.options.addAll(Option.createOptions());
-        FileHandler.readQuestions();
+        readQuestions();
     }
 
     //Skriver ut alla frågor som finns i questions filen
@@ -59,6 +60,26 @@ public class QuizManager implements Serializable {
     public static void printOneQuestion (ArrayList<QuizManager> questions) {
         System.out.println(questions.get(1));
     }
+
+    //Läser in frågor från user till filen questions.txt
+    public static ArrayList<QuizManager> readQuestions () {
+
+        try {
+            return (ArrayList<QuizManager>) FileHandler.read("questions.txt");
+        }
+        catch (IOException e) {
+            return new ArrayList<>();
+        }
+        catch (ClassNotFoundException e) {
+            return new ArrayList<>();
+        }
+    }
+
+    //Skriver frågorna till filen questions.txt
+    public static void writeQuestions (ArrayList<QuizManager> question) {
+        FileHandler.write("questions.txt", question);
+    }
+
 }
 
 // handle questions

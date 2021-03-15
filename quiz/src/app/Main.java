@@ -3,6 +3,8 @@ package app;
 import java.io.IOException;
 import java.util.Scanner;
 
+import static app.QuizManager.readQuestions;
+
 public class Main {
     public static void main (String []args) throws IOException, InterruptedException {
 
@@ -32,7 +34,7 @@ public class Main {
                 Player.showStats(player2);
                 break;
             case "2":
-                QuizManager.printAllQuestions(FileHandler.readQuestions());
+                QuizManager.printAllQuestions(readQuestions());
                 System.out.println("[1] ADD QUESTION");
                 System.out.println("[2] DELETE QUESTION");
                 int inputNumber = scanner.nextInt();
@@ -43,7 +45,7 @@ public class Main {
 
                 if (inputNumber == 2) {
                     System.out.println("Which question do you want to delete?\n" );
-                    QuizManager.printAllQuestions(FileHandler.readQuestions());
+                    QuizManager.printAllQuestions(readQuestions());
                     //TODO: delete en fråga
                     break;
                 }
