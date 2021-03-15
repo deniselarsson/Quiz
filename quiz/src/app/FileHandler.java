@@ -1,8 +1,6 @@
 package app;
 import java.io.*;
 
-
-
 public class FileHandler {
 
     //Läser in objektet QuizManager
