@@ -1,5 +1,4 @@
-package serialization;
-
+package app;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -29,10 +28,10 @@ public class FileHandler {
     }
 
     //Läser in frågor från user till filen
-    public static ArrayList<Question> readQuestions () {
+    public static ArrayList<QuizManager> readQuestions () {
 
         try {
-            return (ArrayList<Question>) read("questions.txt");
+            return (ArrayList<QuizManager>) read("questions.txt");
         }
         catch (IOException e) {
             return new ArrayList<>();
@@ -43,7 +42,7 @@ public class FileHandler {
     }
 
     //Skriver frågorna till filen
-    public static void writeQuestions (ArrayList<Question> question) {
+    public static void writeQuestions (ArrayList<QuizManager> question) {
         write("questions.txt", question);
     }
 }

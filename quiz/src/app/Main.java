@@ -1,8 +1,5 @@
 package app;
 
-import serialization.FileHandler;
-import serialization.Question;
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -17,7 +14,7 @@ public class Main {
 
         System.out.println("WELCOME");
         System.out.println("[1] PLAY");
-        System.out.println("[2] QUIZZES");
+        System.out.println("[2] QUIZ OPTIONS");
         System.out.println("[3] EXIT");
         String input = scanner.nextLine();
 
@@ -25,8 +22,9 @@ public class Main {
             case "1":
                 player1 = Player.createPlayer("1");
                 player2 = Player.createPlayer("2");
-                Question.printOneQuestion(FileHandler.readQuestions());
-                //quiz.startQuiz(1);
+                //Question.printOneQuestion(FileHandler.readQuestions());
+                quiz.startQuiz(1);
+                //TODO: Denise får frågorna och options och läsa ut
                 player1.addPlayed_Games();
                 player2.addPlayed_Games();
                 comparePoints(quiz, player1, player2);
@@ -34,17 +32,19 @@ public class Main {
                 Player.showStats(player2);
                 break;
             case "2":
+                QuizManager.printAllQuestions(FileHandler.readQuestions());
                 System.out.println("[1] ADD QUESTION");
                 System.out.println("[2] DELETE QUESTION");
                 int inputNumber = scanner.nextInt();
 
                 if (inputNumber == 1) {
-                    Question.setNewQuestion();
+                    QuizManager.setNewQuestion();
                 }
 
                 if (inputNumber == 2) {
                     System.out.println("Which question do you want to delete?\n" );
-                    Question.printAllQuestions(FileHandler.readQuestions());
+                    QuizManager.printAllQuestions(FileHandler.readQuestions());
+                    //TODO: delete en fråga
                     break;
                 }
             case "3":

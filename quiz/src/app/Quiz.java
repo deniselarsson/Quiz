@@ -18,15 +18,16 @@ public class Quiz {
 
     Scanner scanner = new Scanner(System.in);
 
-    String questions_txt = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\files\\Questions.txt";
-    String answers_txt = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\files\\Answers.txt";
-    String options_txt = "C:\\Users\\Axel\\IdeaProjects\\Quiz\\quiz\\src\\files\\Options.txt";
+    String questions_txt = "C:/Workspace/Quiz/quiz/src/files/Questions.txt";
+    String answers_txt = "C:/Workspace/Quiz/quiz/src/files/Answers.txt";
+    String options_txt = "C:/Workspace/Quiz/quiz/src/files/Options.txt";
 
     // Startar quiz och loopar så att den går igenom alla 6 frågor
     public void startQuiz(int i) throws IOException, InterruptedException {
         resetPoints();
-        for ( ;i < 7; i++){
-            getQuestions(i);
+        for ( ;i < 1; i++){
+            QuizManager.printOneQuestion(FileHandler.readQuestions());
+            //getQuestions(i);
         }
     }
 
