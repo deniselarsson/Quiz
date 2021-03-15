@@ -1,20 +1,22 @@
 package app;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import static app.QuizManager.readQuestions;
 
 public class Main {
     public static void main (String []args) throws IOException, InterruptedException {
 
         Scanner scanner = new Scanner(System.in);
         Quiz quiz = new Quiz();
+        QuizManager quizManager = new QuizManager();
+
 
         Player player1 = new Player();
         Player player2 = new Player();
 
-        System.out.println("WELCOME");
+        System.out.println("---------WELCOME---------");
         System.out.println("[1] PLAY");
         System.out.println("[2] QUIZ OPTIONS");
         System.out.println("[3] EXIT");
@@ -24,9 +26,14 @@ public class Main {
             case "1":
                 player1 = Player.createPlayer("1");
                 player2 = Player.createPlayer("2");
-                //Question.printOneQuestion(FileHandler.readQuestions());
-                quiz.startQuiz(1);
-                //TODO: Denise får frågorna och options och läsa ut
+
+
+                System.out.println("\n---------The quiz start---------"); //added by Denise
+                quizManager.load();
+                Quiz.startTheQuiz(); // Added by denise
+
+
+                //quiz.startQuiz(1);
                 player1.addPlayed_Games();
                 player2.addPlayed_Games();
                 comparePoints(quiz, player1, player2);
@@ -34,19 +41,22 @@ public class Main {
                 Player.showStats(player2);
                 break;
             case "2":
-                QuizManager.printAllQuestions(readQuestions());
+                quizManager.printAllQuestions();
+
                 System.out.println("[1] ADD QUESTION");
                 System.out.println("[2] DELETE QUESTION");
                 int inputNumber = scanner.nextInt();
 
                 if (inputNumber == 1) {
-                    QuizManager.setNewQuestion();
+                    quizManager.load();//Load the file  (added by denise)
+                    quizManager.addQuestion();//add question with options and answer (added by denise)
+                    quizManager.save(); // save the question, options and answer to the file (added by denise)
                 }
 
                 if (inputNumber == 2) {
                     System.out.println("Which question do you want to delete?\n" );
-                    QuizManager.printAllQuestions(readQuestions());
-                    //TODO: delete en fråga
+                    quizManager.printAllQuestions(); // Show all the questions in the questions file  (added by denise)
+                    //TODO: Delete questions
                     break;
                 }
             case "3":

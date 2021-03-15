@@ -1,85 +1,84 @@
 package app;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
-//För att frågorna ska kunna serializeras till en fil måste objektet implementera Serializable interface
+
+//För att frågorna ska kunna serializeras till en fil måste
+// objektet implementera Serializable interface
 public class QuizManager implements Serializable {
 
-    private String text;
-    public ArrayList<Option> options = new ArrayList<>();
+    // The file where we store the questions
+    private final String fileName = "questions.txt";
 
-    public void setText (String text) {
-        this.text = text;
+    // The list of questions loaded from the file
+    ArrayList<Question> questions;
+
+    // Loads the questions from the file
+    // If there is no file or it cant be read a empty question list is created
+    public void load() {
+        try {
+            questions = (ArrayList<Question>) FileHandler.read(fileName);
+        }
+        catch (Exception e) {
+            questions = new ArrayList<>();
+        }
     }
 
-    public String getText () {
-        return text;
+    // Saves the question list to file
+    public void save() {
+        FileHandler.write(fileName, questions);
     }
 
-    public String toString () {
-        return getText();
-    }
-
-    //Läser frågan från användaren
-    public static String readQuestionText () {
-
+    // Adds a question to the list
+    // NOTE: You need to call save to persist it to file
+    public void addQuestion() {
+        Question question = new Question();
         Scanner scan = new Scanner(System.in);
         System.out.println("Write your question:");
-        return scan.nextLine();
-    }
-
-    //sätter texten som kommer från användaren
-    public static QuizManager createQuestion () {
-
-        QuizManager question = new QuizManager();
-        question.setText(readQuestionText());
-        return question;
-    }
-
-    //Skriver in den nya frågan + options + om det är rätt eller fel svar till questions filen
-    public static void setNewQuestion () {
-
-        ArrayList<QuizManager> questions = readQuestions();
-        QuizManager question = createQuestion();
+        question.setText(scan.nextLine());
+        question.getOptions().addAll(readOptions());
         questions.add(question);
-        writeQuestions(questions);
-        question.options.addAll(Option.createOptions());
-        readQuestions();
     }
 
-    //Skriver ut alla frågor som finns i questions filen
-    public static void printAllQuestions (ArrayList<QuizManager> questions) {
+    // Reads the question options
+    // NOTE: Currently hardcoded to 3
+    private ArrayList<Option> readOptions() {
+        ArrayList<Option> options = new ArrayList<>();
 
-        for (QuizManager question : questions) {
+        for (int i = 0; i < 3; i++) {
+
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Write your option: ");
+            String text = scan.nextLine();
+            System.out.println("Is this the correct answer(Y/N)");
+            String y = scan.nextLine();
+            Option option = new Option(text, y.equals("y"));
+            options.add(option);
+
+        }
+        return options;
+    }
+
+    // Writes all questions in the question list
+    public void printAllQuestions () {
+
+        for (Question question : questions) {
             System.out.println(question.getText());
         }
     }
-    //Skriver ut en fråga utifrån vilken index jag anropa
-    public static void printOneQuestion (ArrayList<QuizManager> questions) {
-        System.out.println(questions.get(1));
+
+   // Prints the question
+    public static void printQuestion (Question question) {
+        System.out.println(question.getText());
     }
 
-    //Läser in frågor från user till filen questions.txt
-    public static ArrayList<QuizManager> readQuestions () {
-
-        try {
-            return (ArrayList<QuizManager>) FileHandler.read("questions.txt");
-        }
-        catch (IOException e) {
-            return new ArrayList<>();
-        }
-        catch (ClassNotFoundException e) {
-            return new ArrayList<>();
+    // Prints the questions options
+    public static void printOptions (ArrayList<Option> options) {
+        for (int i = 0; i < options.size(); i++) {
+            System.out.println((i + 1) + " - " + options.get(i).getText());
         }
     }
-
-    //Skriver frågorna till filen questions.txt
-    public static void writeQuestions (ArrayList<QuizManager> question) {
-        FileHandler.write("questions.txt", question);
-    }
-
 }
 
 // handle questions
