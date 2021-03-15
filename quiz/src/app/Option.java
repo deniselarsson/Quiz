@@ -1,49 +1,38 @@
 package app;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.Serializable;
 
-public class Option {
+public class Option implements Serializable {
 
-    String text;
-    boolean isCorrectAnswer;
-    public ArrayList<Option> options = new ArrayList<>();
+    // The text for the option
+    private String text;
+    // Set to true if the option is correct
+    private boolean isCorrectAnswer;
 
     //för att organisera options
     //Måste finnas en text och en boolean
-    Option(String text, boolean isCorrectAnswer){
+    Option (String text, boolean isCorrectAnswer) {
         this.text = text;
         this.isCorrectAnswer = isCorrectAnswer;
     }
 
-    public ArrayList<Option> getText () {
-        return options;
+    // Gets the text for the option
+    public String getText () {
+        return text;
     }
 
-   public void setText(){
-    this.getText();
+    // Sets the text for the option
+    public void setText(String text) {
+        this.text = text;
     }
 
-    //Skriv in option till frågan, och om svaret är rätt eller ej, sedan spara detta i en arraylista
-    public static ArrayList<Option> createOptions () {
-
-        ArrayList<Option> options = new ArrayList<>();
-
-        for (int i = 0; i < 1; i++) {
-
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Write your option: ");
-            String text = scan.nextLine();
-            System.out.println("Is this the correct answer(Y/N)");
-            String y = scan.nextLine();
-            Option option = new Option(text, y.equals("y"));
-            options.add(option);
-        }
-        return options;
+    // Gets a boolean indicating if the option is a correct answer
+    public boolean getIsCorrectAnswer () {
+        return isCorrectAnswer;
     }
-    public static void printOptions (ArrayList<Option> options) {
-        for (Option option: options){
-            System.out.println(option.text);
-        }
+
+    // Sets if the option is a correct answer
+    public void setIsCorrectAnswer (boolean isCorrectAnswer) {
+        this.isCorrectAnswer = isCorrectAnswer;
     }
 }
