@@ -1,5 +1,8 @@
 package app;
 
+import serialization.FileHandler;
+import serialization.Question;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -30,14 +33,25 @@ public class Main {
                 Player.showStats(player2);
                 break;
             case "2":
-                System.out.println("Quiz edit");
-                break;
+                System.out.println("[1] Add Question");
+                System.out.println("[2] delete Question");
+                int inputNumber = scanner.nextInt();
+
+                if (inputNumber == 1) {
+                    Question.setNewQuestion();
+                }
+                //Om använadren skriver in 2 visa alla frågor och fråga vilken dem vill radera
+                if (inputNumber == 2) {
+                    System.out.println("Which question do you want to delete?");
+                    Question.printAllQuestions(FileHandler.readQuestions());
+                    break;
+                }
             case "3":
                 System.exit(0);
                 break;
+
             default:
                 System.out.println("Invalid input, try again");
-
         }
     }
 
