@@ -25,9 +25,9 @@ public class Quiz {
     // Startar quiz och loopar så att den går igenom alla 6 frågor
     public void startQuiz(int i) throws IOException, InterruptedException {
         resetPoints();
-        for ( ;i < 1; i++){
-            QuizManager.printOneQuestion(FileHandler.readQuestions());
-            //getQuestions(i);
+        for ( ;i < 7; i++){
+            //QuizManager.printOneQuestion(FileHandler.readQuestions());
+            getQuestions(i);
         }
     }
 
