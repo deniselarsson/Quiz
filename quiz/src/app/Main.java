@@ -25,7 +25,8 @@ public class Main {
             case "1":
                 player1 = Player.createPlayer("1");
                 player2 = Player.createPlayer("2");
-                quiz.startQuiz(1);
+                Question.printOneQuestion(FileHandler.readQuestions());
+                //quiz.startQuiz(1);
                 player1.addPlayed_Games();
                 player2.addPlayed_Games();
                 comparePoints(quiz, player1, player2);
@@ -33,16 +34,16 @@ public class Main {
                 Player.showStats(player2);
                 break;
             case "2":
-                System.out.println("[1] Add Question");
-                System.out.println("[2] delete Question");
+                System.out.println("[1] ADD QUESTION");
+                System.out.println("[2] DELETE QUESTION");
                 int inputNumber = scanner.nextInt();
 
                 if (inputNumber == 1) {
                     Question.setNewQuestion();
                 }
-                //Om använadren skriver in 2 visa alla frågor och fråga vilken dem vill radera
+
                 if (inputNumber == 2) {
-                    System.out.println("Which question do you want to delete?");
+                    System.out.println("Which question do you want to delete?\n" );
                     Question.printAllQuestions(FileHandler.readQuestions());
                     break;
                 }
