@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class PointHandler {
+public class PointManager {
 
     int player1Correct = 0;
     int player2Correct = 0;
@@ -35,8 +35,7 @@ public class PointHandler {
 
     }
 
-
-    public static void comparePoints(Quiz quiz, Player player1, Player player2){
+    public static void comparePoints(PointManager quiz, Player player1, Player player2){
         if (quiz.player1Correct > quiz.player2Correct){
             player1.addScore();
             System.out.println("Congratulations " + player1.name + " you won");

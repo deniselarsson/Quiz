@@ -1,13 +1,13 @@
 package app;
-import java.util.Scanner;
 
-import static app.Quiz.runQuestionQuiz;
+import java.util.Scanner;
+import static app.QuizManager.startTheQuiz;
 
 public class Main {
     public static void main (String []args) throws InterruptedException {
 
         Scanner scanner = new Scanner(System.in);
-        Quiz quiz = new Quiz();
+        PointManager pointManager = new PointManager();
         QuestionManager questionManager = new QuestionManager();
 
         Player player1 = new Player();
@@ -21,26 +21,17 @@ public class Main {
 
         switch (input) {
             case "1":
-                player1 = Player.createPlayer("1");
-                player2 = Player.createPlayer("2");
-
-
-                System.out.println("\n---------The quiz start---------\n"); //added by Denise
-                questionManager.load(); // Added by denise
-                //Quiz.startTheQuiz(); // Added by denise
-                runQuestionQuiz();
-
-                Thread.sleep(10000);
+                startTheQuiz();   // Added by denise
+                Thread.sleep(1000);
 
                 player1.addPlayed_Games();
                 player2.addPlayed_Games();
-                PointHandler.comparePoints(quiz, player1, player2);
+                PointManager.comparePoints(pointManager, player1, player2);
                 Player.showStats(player1);
                 Player.showStats(player2);
                 break;
-            case "2":
-                //quizManager.printAllQuestions();
 
+            case "2":
                 System.out.println("[1] ADD QUESTION");
                 System.out.println("[2] DELETE QUESTION");
                 int inputNumber = scanner.nextInt();
@@ -53,7 +44,7 @@ public class Main {
 
                 if (inputNumber == 2) {
                     System.out.println("Which question do you want to delete?\n" );
-                    questionManager.load();
+                    questionManager.load();  // Added by denise
                     questionManager.printAllQuestions(); // Added by denise - Show all the questions in the questions file
                     //TODO: Delete questions
                     break;

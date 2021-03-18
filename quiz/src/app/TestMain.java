@@ -1,5 +1,6 @@
 package app;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TestMain {
@@ -9,28 +10,44 @@ public class TestMain {
         test1();
 
     }
-    public static void test1 (){
+    public static void test1 () {
 
         QuestionManager questionManager = new QuestionManager();
         questionManager.load();
         QuizManager quizManager = new QuizManager(questionManager.questions);
+        ArrayList<Player> players = new ArrayList<>();
 
-        for (int i = 0; i < 6; i++) {
-            Question question = quizManager.getNextQuestion();
-            QuestionManager.printQuestion(question);
-            QuestionManager.printOptions(question.getOptions());
-            System.out.println("\nPlease enter you anwear:");
+        ///
+     /*   Player player1 = new Player();
+        player1.name = "Denise";
+        players.add(player1);
+        Player player2 = new Player();
+        player2.name = "Micke";
+        players.add(player2);
+        ///*/
 
-            Scanner scan = new Scanner(System.in);
-            int userAnswer = Integer.parseInt(scan.nextLine()) - 1;
+        players.add(Player.createPlayer("1"));
+        players.add(Player.createPlayer("2"));
 
-            if (QuizManager.isCorrectAnswer(question, userAnswer)) {
-                System.out.println("CORRECT ANSWER!");
+        for (int i = 0; i < 3; i++) {
+            for (Player player : players) {
+
+                System.out.println("Player: " + player.name);
+                Question question = quizManager.getNextQuestion();
+                QuestionManager.printQuestion(question);
+                QuestionManager.printOptions(question.getOptions());
+                System.out.println("\nPlease enter you answer:");
+
+                Scanner scan = new Scanner(System.in);
+                int userAnswer = Integer.parseInt(scan.nextLine()) - 1;
+
+                if (QuizManager.isCorrectAnswer(question, userAnswer)) {
+                    System.out.println("CORRECT ANSWER!");
+                }
+                else {
+                    System.out.println("WRONG ANSWER");
+                }
             }
-            else {
-                System.out.println("WRONG ANSWER");
-            }
-
 
         }
     }
