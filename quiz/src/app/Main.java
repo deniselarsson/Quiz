@@ -1,6 +1,7 @@
 package app;
 import java.util.Scanner;
 
+import static app.TestMain.runQuestionQuiz;
 
 public class Main {
     public static void main (String []args) throws InterruptedException {
@@ -26,7 +27,7 @@ public class Main {
 
                 System.out.println("\n---------The quiz start---------\n"); //added by Denise
                 quizManager.load(); // Added by denise
-                Quiz.startTheQuiz(); // Added by denise
+                runQuestionQuiz(); // Added by denise
 
                 Thread.sleep(10000);
 
