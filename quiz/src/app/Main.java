@@ -1,7 +1,6 @@
 package app;
 
 import java.util.Scanner;
-import static app.QuizManager.startTheQuiz;
 
 public class Main {
     public static void main (String []args) throws InterruptedException {
@@ -21,7 +20,7 @@ public class Main {
 
         switch (input) {
             case "1":
-                startTheQuiz();   // Added by denise
+                QuizManager.startTheQuiz();   // Added by denise
                 Thread.sleep(1000);
 
                 player1.addPlayed_Games();

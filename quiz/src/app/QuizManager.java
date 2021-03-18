@@ -36,7 +36,7 @@ public class QuizManager {
         players.add(Player.createPlayer("1"));
         players.add(Player.createPlayer("2"));
 
-        System.out.println("\n---------The quiz start---------\n"); //added by Denise
+        System.out.println("\n---------The quiz start---------");
 
         for (int i = 0; i < 3; i++) {
             for (Player player : players) {

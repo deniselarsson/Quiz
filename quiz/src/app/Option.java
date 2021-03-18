@@ -1,16 +1,12 @@
 /** serialiserde objektet
  @author  Denisé Larsson
  */
-
 package app;
-
 import java.io.Serializable;
 
 public class Option implements Serializable {
 
-    // The text for the option
     private String text;
-    // Set to true if the option is correct
     private boolean isCorrectAnswer;
 
     //för att organisera options
