@@ -1,7 +1,6 @@
 package app;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -28,12 +27,12 @@ public class Main {
                 player2 = Player.createPlayer("2");
 
 
-                System.out.println("\n---------The quiz start---------"); //added by Denise
-                quizManager.load();
+                System.out.println("\n---------The quiz start---------\n"); //added by Denise
+                quizManager.load(); // Added by denise
                 Quiz.startTheQuiz(); // Added by denise
 
+                Thread.sleep(10000);
 
-                //quiz.startQuiz(1);
                 player1.addPlayed_Games();
                 player2.addPlayed_Games();
                 comparePoints(quiz, player1, player2);
@@ -41,21 +40,22 @@ public class Main {
                 Player.showStats(player2);
                 break;
             case "2":
-                quizManager.printAllQuestions();
+                //quizManager.printAllQuestions();
 
                 System.out.println("[1] ADD QUESTION");
                 System.out.println("[2] DELETE QUESTION");
                 int inputNumber = scanner.nextInt();
 
                 if (inputNumber == 1) {
-                    quizManager.load();//Load the file  (added by denise)
-                    quizManager.addQuestion();//add question with options and answer (added by denise)
-                    quizManager.save(); // save the question, options and answer to the file (added by denise)
+                    quizManager.load();//Added by denise - Load the file
+                    quizManager.addQuestion();//Added by denise- add question with options and answer
+                    quizManager.save(); // Added by denise - save the question, options and answer to the file
                 }
 
                 if (inputNumber == 2) {
                     System.out.println("Which question do you want to delete?\n" );
-                    quizManager.printAllQuestions(); // Show all the questions in the questions file  (added by denise)
+                    quizManager.load();
+                    quizManager.printAllQuestions(); // Added by denise - Show all the questions in the questions file
                     //TODO: Delete questions
                     break;
                 }
@@ -79,21 +79,4 @@ public class Main {
             System.out.println("EVEN AMOUNT OF POINTS");
         }
     }
-
 }
-
-
-
-    /* 1. Välkomstmeny (Lägg som meny 2)
-    *       a. PLAY
-    *           - Player 1 : namn, ålder, mail
-    *           - Player 2 : namn, ålder, mail
-    *               -> Starta quiz 6 frågor
-    *                   -> Visa score och played games
-    *       b. Redigera quiz
-    *           - add
-    *           - remove
-    *           - edit
-    *               -> ask for correct answers
-    *       c. Exit game
-    * */

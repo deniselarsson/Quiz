@@ -124,12 +124,10 @@ public class Quiz {
     public static void startTheQuiz () {
 
         QuizManager quizManager = new QuizManager();
-        Timer timer = new Timer();
 
         //Load the file
         quizManager.load();
         //Present the timer before question shows
-        timer.timer(0);
 
         //get question index 0 which we declare a new variabel currentQuestion
         Question currentQuestion = quizManager.questions.get(0);

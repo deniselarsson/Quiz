@@ -9,7 +9,7 @@ public class Timer {
     java.util.Timer timer = new java.util.Timer();
 
     public  void timer(int questionNumber) {
-        System.out.println("----------You have 5 seconds to answer----------");
+        System.out.println("You have 5 seconds to answer:");
         timer.schedule(new TimerTask() {
             // variabel för antalet sekunder per fråga
             int sec = 6;
