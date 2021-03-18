@@ -1,14 +1,14 @@
 package app;
 import java.util.Scanner;
 
-import static app.TestMain.runQuestionQuiz;
+import static app.Quiz.runQuestionQuiz;
 
 public class Main {
     public static void main (String []args) throws InterruptedException {
 
         Scanner scanner = new Scanner(System.in);
         Quiz quiz = new Quiz();
-        QuizManager quizManager = new QuizManager();
+        QuestionManager questionManager = new QuestionManager();
 
         Player player1 = new Player();
         Player player2 = new Player();
@@ -26,8 +26,9 @@ public class Main {
 
 
                 System.out.println("\n---------The quiz start---------\n"); //added by Denise
-                quizManager.load(); // Added by denise
-                runQuestionQuiz(); // Added by denise
+                questionManager.load(); // Added by denise
+                //Quiz.startTheQuiz(); // Added by denise
+                runQuestionQuiz();
 
                 Thread.sleep(10000);
 
@@ -45,15 +46,15 @@ public class Main {
                 int inputNumber = scanner.nextInt();
 
                 if (inputNumber == 1) {
-                    quizManager.load();//Added by denise - Load the file
-                    quizManager.addQuestion();//Added by denise- add question with options and answer
-                    quizManager.save(); // Added by denise - save the question, options and answer to the file
+                    questionManager.load();//Added by denise - Load the file
+                    questionManager.addQuestion();//Added by denise- add question with options and answer
+                    questionManager.save(); // Added by denise - save the question, options and answer to the file
                 }
 
                 if (inputNumber == 2) {
                     System.out.println("Which question do you want to delete?\n" );
-                    quizManager.load();
-                    quizManager.printAllQuestions(); // Added by denise - Show all the questions in the questions file
+                    questionManager.load();
+                    questionManager.printAllQuestions(); // Added by denise - Show all the questions in the questions file
                     //TODO: Delete questions
                     break;
                 }

@@ -3,6 +3,7 @@ package app;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Quiz {
@@ -37,27 +38,27 @@ public class Quiz {
     //Start the quiz where we read from the serialized object
     public static void runQuestionQuiz(){
 
-        QuizManager questionBase = new QuizManager();
+        QuestionManager questionManager = new QuestionManager();
+        questionManager.load();
+        QuizManager quizManager = new QuizManager(questionManager.questions);
+
         int i = 0;
 
         while(i < 6){
-            //Load the file
-            questionBase.load();
             //get question index 0 which we declare a new variabel currentQuestion
-            Question currentQuestion = questionBase.questions.get(i);
+            Question question = quizManager.getNextQuestion();
             //Print the first question from the file
-            QuizManager.printQuestion(currentQuestion);
+            QuestionManager.printQuestion(question);
             //Print the 3 options
-            QuizManager.printOptions(currentQuestion.getOptions());
+            QuestionManager.printOptions(question.getOptions());
             //Ask the user to write 1-3 for the correct answer
             System.out.println("\nPlease enter you anwear:");
             //Save the user input
             Scanner scan = new Scanner(System.in);
             int userAnswer = Integer.parseInt(scan.nextLine()) - 1;
             //compare the user input is the correct answer
-            Option option = currentQuestion.getOptions().get(userAnswer);
 
-            if (option.getIsCorrectAnswer()) {
+            if (QuizManager.isCorrectAnswer(question, userAnswer)) {
                 System.out.println("CORRECT ANSWER!");
 
             }
