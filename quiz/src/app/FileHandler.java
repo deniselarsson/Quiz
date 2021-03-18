@@ -2,7 +2,6 @@ package app;
 import java.io.*;
 
 public class FileHandler {
-
     //Läser in objektet QuizManager
     static Object read (String fileName) throws IOException, ClassNotFoundException {
 
@@ -14,7 +13,6 @@ public class FileHandler {
 
     //Skriver ut objektet Quizmanager från minnet till en fil
     static void write (String fileName, Object object) {
-
         try {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName));
             out.writeObject(object);

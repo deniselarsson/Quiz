@@ -18,7 +18,6 @@ public class Player extends Person {
     public Player() {
         super();
     }
-
     public void addScore(){
         score++;
     }
@@ -26,7 +25,6 @@ public class Player extends Person {
     public void addPlayed_Games(){
         played_games++;
     }
-
 
     public static void showStats(Player player){
         System.out.println();
@@ -81,7 +79,6 @@ public class Player extends Person {
                 System.out.println("Not valid, try again");
             }
         }
-
         // Loop, regex pattern and validation for mail
         String regexMail = "^(.+)@(.+)$";
         Pattern patternMail = Pattern.compile(regexMail);
@@ -106,6 +103,5 @@ public class Player extends Person {
         Player temp = new Player(name, age, mail, score, played_games);
         return temp;
     }
-
 }
 

@@ -1,16 +1,13 @@
 package app;
-
-import java.io.IOException;
 import java.util.Scanner;
 
 
 public class Main {
-    public static void main (String []args) throws IOException, InterruptedException {
+    public static void main (String []args) throws InterruptedException {
 
         Scanner scanner = new Scanner(System.in);
         Quiz quiz = new Quiz();
         QuizManager quizManager = new QuizManager();
-
 
         Player player1 = new Player();
         Player player2 = new Player();
@@ -35,7 +32,7 @@ public class Main {
 
                 player1.addPlayed_Games();
                 player2.addPlayed_Games();
-                comparePoints(quiz, player1, player2);
+                PointHandler.comparePoints(quiz, player1, player2);
                 Player.showStats(player1);
                 Player.showStats(player2);
                 break;
@@ -65,18 +62,6 @@ public class Main {
 
             default:
                 System.out.println("Invalid input, try again");
-        }
-    }
-
-    public static void comparePoints(Quiz quiz, Player player1, Player player2){
-        if (quiz.player1Correct > quiz.player2Correct){
-            player1.addScore();
-            System.out.println("Congratulations " + player1.name + " you won");
-        } else if (quiz.player1Correct < quiz.player2Correct){
-            player2.addScore();
-            System.out.println("Congratulations " + player2.name + " you won");
-        } else {
-            System.out.println("EVEN AMOUNT OF POINTS");
         }
     }
 }
