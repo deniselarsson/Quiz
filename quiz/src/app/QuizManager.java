@@ -1,5 +1,8 @@
-package app;
+/** Denna klassen hantera quiz
+ @author  Denisé Larsson
+ */
 
+package app;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;

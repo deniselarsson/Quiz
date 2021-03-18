@@ -1,6 +1,9 @@
+/** Denna klassen hantera serialiserde objektet
+ @author  Denisé Larsson
+ */
+
 package app;
 import java.io.*;
-
 public class FileHandler {
     //Läser in objektet QuizManager
     static Object read (String fileName) throws IOException, ClassNotFoundException {

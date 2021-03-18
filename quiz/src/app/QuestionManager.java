@@ -1,10 +1,13 @@
+/** Denna klassen hantera frågor
+ @author  Denisé Larsson
+ */
+
 package app;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//För att frågorna ska kunna serializeras till en fil måste
-// objektet implementera Serializable interface
+
 public class QuestionManager {
 
     // The file where we store the questions

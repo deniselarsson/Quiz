@@ -1,3 +1,7 @@
+/** serialiserde objektet
+ @author  Denisé Larsson
+ */
+
 package app;
 
 import java.io.Serializable;
