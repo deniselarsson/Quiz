@@ -10,20 +10,20 @@ public class TestMain {
         //test1();
 
         Scanner scanner = new Scanner(System.in);
-        TidTagare tidTagare = new TidTagare();
+        Hourglass hourglass = new Hourglass();
 
         System.out.println("Fråga 1");
-        tidTagare.startTimer();
+        hourglass.startTimer();
         scanner.nextInt();
-        tidTagare.endTimer(1);
+        hourglass.endTimer(1);
 
         System.out.println("Fråga 2");
-        tidTagare.startTimer();
+        hourglass.startTimer();
         scanner.nextInt();
-        tidTagare.endTimer(2);
+        hourglass.endTimer(2);
 
-        System.out.println(tidTagare.durationTimePlayer1);
-        System.out.println(tidTagare.durationTimePlayer2);
+        System.out.println(Hourglass.durationTimePlayer1);
+        System.out.println(Hourglass.durationTimePlayer2);
 
 
 

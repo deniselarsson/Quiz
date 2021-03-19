@@ -3,7 +3,7 @@ package app;
 import java.time.Duration;
 import java.time.LocalTime;
 
-public class TidTagare{
+public class Hourglass {
 
     LocalTime start;
     LocalTime end;

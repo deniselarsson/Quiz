@@ -35,8 +35,8 @@ public class QuizManager {
     }
 
     public static void startTheQuiz (Player player1, Player player2) throws InterruptedException {
-        TidTagare tidTagare = new TidTagare();
-        tidTagare.resetTime();
+        Hourglass hourglass = new Hourglass();
+        hourglass.resetTime();
 
         resetPoints();
 
@@ -58,7 +58,7 @@ public class QuizManager {
                 QuestionManager.printQuestion(question);
                 Thread.sleep(1000);
                 QuestionManager.printOptions(question.getOptions());
-                tidTagare.startTimer();
+                hourglass.startTimer();
 
                 System.out.println("\nPlease enter your answer:");
 
@@ -67,9 +67,9 @@ public class QuizManager {
 
 
                 if (players.get(0).equals(player)){
-                    tidTagare.endTimer(1);
+                    hourglass.endTimer(1);
                 } else {
-                    tidTagare.endTimer(2);
+                    hourglass.endTimer(2);
                 }
 
 
@@ -98,12 +98,12 @@ public class QuizManager {
             player2.addScore();
             System.out.println("\u001B[0m" + "Congratulations " + player2.name + " you won" + "\u001B[0m");
         } else {
-            if (TidTagare.durationTimePlayer1 < TidTagare.durationTimePlayer2){
-                System.out.println("\u001B[0m" + "Even amount of points but " + player1.name + " was " + (TidTagare.durationTimePlayer2 - TidTagare.durationTimePlayer1) + " seconds faster" + "\u001B[0m");
+            if (Hourglass.durationTimePlayer1 < Hourglass.durationTimePlayer2){
+                System.out.println("\u001B[0m" + "Even amount of points but " + player1.name + " was " + (Hourglass.durationTimePlayer2 - Hourglass.durationTimePlayer1) + " seconds faster" + "\u001B[0m");
                 System.out.println("\u001B[0m" + "Congratulations " + player1.name + " you won" + "\u001B[0m");
                 player1.addScore();
-            } else if (TidTagare.durationTimePlayer1 > TidTagare.durationTimePlayer2){
-                System.out.println("\u001B[0m" + "Even amount of points but " + player2.name + " was " + (TidTagare.durationTimePlayer1 - TidTagare.durationTimePlayer2) + " seconds faster" + "\u001B[0m");
+            } else if (Hourglass.durationTimePlayer1 > Hourglass.durationTimePlayer2){
+                System.out.println("\u001B[0m" + "Even amount of points but " + player2.name + " was " + (Hourglass.durationTimePlayer1 - Hourglass.durationTimePlayer2) + " seconds faster" + "\u001B[0m");
                 System.out.println("\u001B[0m" + "Congratulations " + player2.name + " you won" + "\u001B[0m");
                 player2.addScore();
             } else {
