@@ -1,17 +1,15 @@
 package app;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- @author  By - Denisé Larsson -  Denna klassen hantera quiz
- */
 public class QuizManager {
 
     static int player1Correct = 0;
     static int player2Correct = 0;
 
-    public static void resetPoints(){
+    public static void resetPoints () {
         player2Correct = 0;
         player1Correct = 0;
     }
@@ -65,19 +63,19 @@ public class QuizManager {
                 Scanner scan = new Scanner(System.in);
                 int userAnswer = Integer.parseInt(scan.nextLine()) - 1;
 
-
-                if (players.get(0).equals(player)){
+                if (players.get(0).equals(player)) {
                     hourglass.endTimer(1);
-                } else {
+                }
+                else {
                     hourglass.endTimer(2);
                 }
 
-
                 if (QuizManager.isCorrectAnswer(question, userAnswer)) {
                     System.out.println("\u001B[32m" + "CORRECT ANSWER!" + "\u001B[32m");
-                    if (players.get(0).equals(player)){
+                    if (players.get(0).equals(player)) {
                         player1Correct++;
-                    } else {
+                    }
+                    else {
                         player2Correct++;
                     }
                 }
@@ -86,31 +84,32 @@ public class QuizManager {
                 }
             }
         }
-        /*System.out.println("\u001B[0m" + "tid för player 1: " + tidTagare.durationTimePlayer1 + " sekunder" + "\u001B[0m");
-        System.out.println("tid för player 2: " + tidTagare.durationTimePlayer2 + " sekunder");*/
     }
 
-    public static void comparePoints(Player player1, Player player2){
-        if (player1Correct > player2Correct){
+    public static void comparePoints (Player player1, Player player2) {
+        if (player1Correct > player2Correct) {
             player1.addScore();
             System.out.println("\u001B[0m" + "Congratulations " + player1.name + " you won" + "\u001B[0m");
-        } else if (player1Correct < player2Correct){
+        }
+        else if (player1Correct < player2Correct) {
             player2.addScore();
             System.out.println("\u001B[0m" + "Congratulations " + player2.name + " you won" + "\u001B[0m");
-        } else {
-            if (Hourglass.durationTimePlayer1 < Hourglass.durationTimePlayer2){
+        }
+        else {
+            if (Hourglass.durationTimePlayer1 < Hourglass.durationTimePlayer2) {
                 System.out.println("\u001B[0m" + "Even amount of points but " + player1.name + " was " + (Hourglass.durationTimePlayer2 - Hourglass.durationTimePlayer1) + " seconds faster" + "\u001B[0m");
                 System.out.println("\u001B[0m" + "Congratulations " + player1.name + " you won" + "\u001B[0m");
                 player1.addScore();
-            } else if (Hourglass.durationTimePlayer1 > Hourglass.durationTimePlayer2){
+            }
+            else if (Hourglass.durationTimePlayer1 > Hourglass.durationTimePlayer2) {
                 System.out.println("\u001B[0m" + "Even amount of points but " + player2.name + " was " + (Hourglass.durationTimePlayer1 - Hourglass.durationTimePlayer2) + " seconds faster" + "\u001B[0m");
                 System.out.println("\u001B[0m" + "Congratulations " + player2.name + " you won" + "\u001B[0m");
                 player2.addScore();
-            } else {
+            }
+            else {
                 System.out.println("\u001B[0m" + "Equal time and points, no winner :(" + "\u001B[0m");
             }
         }
     }
-
 }
 
