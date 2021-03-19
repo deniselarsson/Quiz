@@ -27,7 +27,6 @@ public class Player extends Person {
         played_games++;
     }
 
-
     public static void showStats(Player player){
         System.out.println();
         System.out.println(player.name + " has played "+ player.played_games + " games and won " + player.score + " games" );
@@ -39,6 +38,7 @@ public class Player extends Person {
     // or if already initialized like this:
     // Player player1 = new Player();    player1 = createPlayer("1");
     public static Player createPlayer(String playerNumber) {
+
         Scanner scanner = new Scanner(System.in);
 
         String name = null;
@@ -49,11 +49,11 @@ public class Player extends Person {
         String regexName = "(?i)(^[a-z])((?![ .,'-]$)[a-z .,'-]){0,24}$";
         Pattern patternName = Pattern.compile(regexName);
 
-        System.out.println("Insert info for player " + playerNumber);
+        System.out.println("------Insert info for player " + playerNumber + "------");
 
         int y = 0;
         while (y == 0) {
-            System.out.println("Name:");
+            System.out.print("Name:");
             name = scanner.nextLine();
 
             Matcher matcher = patternName.matcher(name);
@@ -61,19 +61,19 @@ public class Player extends Person {
             if (matcher.matches()) {
                 y++;
             } else {
-                System.out.println("Not valid, try again");
+                System.out.print("Not valid, try again");
             }
         }
 
         // Loop and input validation for age
         int i = 0;
         while (i == 0) {
-            System.out.println("Age: ");
+            System.out.print("Age: ");
             String x = scanner.next();
             try {
                 age = Integer.parseInt(x);
                 if (age <= 0) {
-                    System.out.println("Too young, try again");
+                    System.out.print("Too young, try again");
                 } else {
                     i++;
                 }
@@ -81,14 +81,13 @@ public class Player extends Person {
                 System.out.println("Not valid, try again");
             }
         }
-
         // Loop, regex pattern and validation for mail
         String regexMail = "^(.+)@(.+)$";
         Pattern patternMail = Pattern.compile(regexMail);
 
         int x = 0;
         while (x == 0) {
-            System.out.println("Mail: ");
+            System.out.print("Mail: ");
             mail = scanner.next();
 
             Matcher matcher = patternMail.matcher(mail);
@@ -106,6 +105,5 @@ public class Player extends Person {
         Player temp = new Player(name, age, mail, score, played_games);
         return temp;
     }
-
 }
 

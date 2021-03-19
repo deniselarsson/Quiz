@@ -14,7 +14,6 @@ public abstract class Person {
         this.age = newAge;
         this.mail = newMail;
     }
-
     public Person() {
 
     }
