@@ -20,7 +20,7 @@ public class Main {
 
         switch (input) {
             case "1":
-                QuizManager.startTheQuiz();   // Added by denise
+                QuizManager.startTheQuiz();
                 Thread.sleep(1000);
 
                 player1.addPlayed_Games();
