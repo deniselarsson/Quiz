@@ -2,6 +2,8 @@ package app;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static app.Start.start;
+
 /**
  @author  By: Denisé Larsson - Denna klassen hantera frågor
  */
@@ -61,9 +63,8 @@ public class QuestionManager {
 
     // Writes all questions in the question list
     public void printAllQuestions () {
-
-        for (Question question : questions) {
-            System.out.println(question.getText());
+        for (int i = 0; i < questions.size(); i++) {
+            System.out.println((i + 1) + " - " + questions.get(i).getText());
         }
     }
 
@@ -77,5 +78,27 @@ public class QuestionManager {
         for (int i = 0; i < options.size(); i++) {
             System.out.println((i + 1) + " - " + options.get(i).getText());
         }
+    }
+    public static void deleteQuestion() throws InterruptedException {
+
+        QuestionManager questionManager = new QuestionManager();
+
+        System.out.println("Which question do you want to delete?\n" );
+        Thread.sleep(1000);
+        questionManager.load();
+        questionManager.printAllQuestions();
+
+        Scanner scan = new Scanner(System.in);
+        System.out.print("\nDelete: ");
+        Integer index = Integer.parseInt(scan.nextLine())- 1;
+        if(questionManager.questions.remove(questionManager.questions.get(index))) {
+            System.out.println("Question removed");
+            Thread.sleep(5000);
+        } else {
+            System.out.println("Could not remove question");
+        }
+        questionManager.save();
+        questionManager.printAllQuestions();
+        start();
     }
 }
