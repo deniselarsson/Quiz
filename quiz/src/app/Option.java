@@ -1,9 +1,9 @@
-/** serialiserde objektet
- @author  Denisé Larsson
- */
 package app;
 import java.io.Serializable;
 
+/**
+ @author  By:Denisé Larsson -serialiserde objekt
+ */
 public class Option implements Serializable {
 
     private String text;

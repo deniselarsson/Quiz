@@ -33,19 +33,25 @@ public class Main {
             case "2":
                 System.out.println("[1] ADD QUESTION");
                 System.out.println("[2] DELETE QUESTION");
+                System.out.println("[3] LIST ALL QUESTIONS ");
                 int inputNumber = scanner.nextInt();
 
                 if (inputNumber == 1) {
-                    questionManager.load();//Added by denise - Load the file
-                    questionManager.addQuestion();//Added by denise- add question with options and answer
-                    questionManager.save(); // Added by denise - save the question, options and answer to the file
+                    questionManager.load();
+                    questionManager.addQuestion();
+                    questionManager.save();
                 }
 
                 if (inputNumber == 2) {
                     System.out.println("Which question do you want to delete?\n" );
-                    questionManager.load();  // Added by denise
-                    questionManager.printAllQuestions(); // Added by denise - Show all the questions in the questions file
+                    questionManager.load();
+                    questionManager.printAllQuestions();
                     //TODO: Delete questions
+                    break;
+                }
+                if (inputNumber == 3) {
+                    questionManager.load();
+                    questionManager.printAllQuestions();
                     break;
                 }
             case "3":

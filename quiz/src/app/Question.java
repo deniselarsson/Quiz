@@ -1,11 +1,10 @@
-/** serialiserde objektet
- @author  Denisé Larsson
- */
-
 package app;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+/**
+ @author  Denisé Larsson -serialiserde objekt
+ */
 
 public class Question  implements Serializable {
 

@@ -1,13 +1,10 @@
-/** Denna klassen hantera frågor
- @author  Denisé Larsson
- */
-
 package app;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ @author  By: Denisé Larsson - Denna klassen hantera frågor
+ */
 public class QuestionManager {
 
     // The file where we store the questions

@@ -1,12 +1,10 @@
-/** Denna klassen hantera quiz
- @author  Denisé Larsson
- */
-
 package app;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
+/**
+ @author  By - Denisé Larsson -  Denna klassen hantera quiz
+ */
 public class QuizManager {
 
     private ArrayList<Question> questions;
