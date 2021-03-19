@@ -7,8 +7,13 @@ public class TidTagare{
 
     LocalTime start;
     LocalTime end;
-    long durationTimePlayer1;
-    long durationTimePlayer2;
+    static long durationTimePlayer1;
+    static long durationTimePlayer2;
+
+    public void resetTime(){
+        durationTimePlayer1 = 0;
+        durationTimePlayer2 = 0;
+    }
 
     public void startTimer(){
         start = LocalTime.now();
@@ -23,8 +28,5 @@ public class TidTagare{
         }
     }
 
-    public void resetTime(){
-        durationTimePlayer1 = 0;
-        durationTimePlayer2 = 0;
-    }
+
 }

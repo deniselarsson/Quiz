@@ -27,9 +27,9 @@ public class Player extends Person {
         played_games++;
     }
 
-    public static void showStats(Player player){
+    public void showStats(){
         System.out.println();
-        System.out.println(player.name + " has played "+ player.played_games + " games and won " + player.score + " games" );
+        System.out.println(name + " has played "+ played_games + " games and won " + score + " games" );
     }
 
     // Method that creates attributes for objects of the Player Class and then returns them in Object form

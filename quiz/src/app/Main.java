@@ -6,7 +6,7 @@ public class Main {
     public static void main (String []args) throws InterruptedException {
 
         Scanner scanner = new Scanner(System.in);
-        PointManager pointManager = new PointManager();
+        //PointManager pointManager = new PointManager();
         QuestionManager questionManager = new QuestionManager();
 
         Player player1 = new Player();
@@ -20,14 +20,17 @@ public class Main {
 
         switch (input) {
             case "1":
-                QuizManager.startTheQuiz();
-                Thread.sleep(1000);
+                player1 = Player.createPlayer("1");
+                player2 = Player.createPlayer("2");
+                QuizManager.startTheQuiz(player1, player2);
 
+                Thread.sleep(1000);
                 player1.addPlayed_Games();
                 player2.addPlayed_Games();
-                PointManager.comparePoints(pointManager, player1, player2);
-                Player.showStats(player1);
-                Player.showStats(player2);
+
+                QuizManager.comparePoints(player1, player2);
+                player1.showStats();
+                player2.showStats();
                 break;
 
             case "2":
