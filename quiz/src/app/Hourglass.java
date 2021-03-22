@@ -10,23 +10,22 @@ public class Hourglass {
     static long durationTimePlayer1;
     static long durationTimePlayer2;
 
-    public void resetTime(){
+    public void resetTime () {
         durationTimePlayer1 = 0;
         durationTimePlayer2 = 0;
     }
 
-    public void startTimer(){
+    public void startTimer () {
         start = LocalTime.now();
     }
 
-    public void endTimer(int player){
+    public void endTimer (int player) {
         end = LocalTime.now();
-        if (player == 1){
+        if (player == 1) {
             durationTimePlayer1 += Duration.between(start, end).getSeconds();
-        } else if (player == 2){
+        }
+        else if (player == 2) {
             durationTimePlayer2 += Duration.between(start, end).getSeconds();
         }
     }
-
-
 }

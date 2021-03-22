@@ -9,35 +9,30 @@ public class Player extends Person {
     int score = 0;
     int played_games = 0;
 
-    Player(String newName, int newAge, String newMail, int score, int played_games) {
+    Player (String newName, int newAge, String newMail, int score, int played_games) {
         super(newName, newAge, newMail);
         this.score = score;
         this.played_games = played_games;
     }
 
-    public Player() {
+    public Player () {
         super();
     }
 
-    public void addScore(){
+    public void addScore () {
         score++;
     }
 
-    public void addPlayed_Games(){
+    public void addPlayed_Games () {
         played_games++;
     }
 
-    public void showStats(){
+    public void showStats () {
         System.out.println();
-        System.out.println(name + " has played "+ played_games + " games and won " + score + " games" );
+        System.out.println(name + " has played " + played_games + " games and won " + score + " games");
     }
 
-    // Method that creates attributes for objects of the Player Class and then returns them in Object form
-    // Use like this:
-    // Player object = createPlayer("playernumber")
-    // or if already initialized like this:
-    // Player player1 = new Player();    player1 = createPlayer("1");
-    public static Player createPlayer(String playerNumber) {
+    public static Player createPlayer (String playerNumber) {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -45,7 +40,6 @@ public class Player extends Person {
         int age = 0;
         String mail = null;
 
-        // Loop, regex pattern and validation for name input
         String regexName = "(?i)(^[a-z])((?![ .,'-]$)[a-z .,'-]){0,24}$";
         Pattern patternName = Pattern.compile(regexName);
 
@@ -60,12 +54,12 @@ public class Player extends Person {
 
             if (matcher.matches()) {
                 y++;
-            } else {
+            }
+            else {
                 System.out.print("Not valid, try again");
             }
         }
 
-        // Loop and input validation for age
         int i = 0;
         while (i == 0) {
             System.out.print("Age: ");
@@ -74,14 +68,16 @@ public class Player extends Person {
                 age = Integer.parseInt(x);
                 if (age <= 0) {
                     System.out.print("Too young, try again");
-                } else {
+                }
+                else {
                     i++;
                 }
-            } catch (NumberFormatException e) {
+            }
+            catch (NumberFormatException e) {
                 System.out.println("Not valid, try again");
             }
         }
-        // Loop, regex pattern and validation for mail
+
         String regexMail = "^(.+)@(.+)$";
         Pattern patternMail = Pattern.compile(regexMail);
 
@@ -94,7 +90,8 @@ public class Player extends Person {
 
             if (matcher.matches()) {
                 x++;
-            } else {
+            }
+            else {
                 System.out.println("Not valid, try again");
             }
         }

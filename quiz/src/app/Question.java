@@ -3,11 +3,7 @@ package app;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- @author  Denisé Larsson -serialiserde objekt
- */
-
-public class Question  implements Serializable {
+public class Question implements Serializable {
 
     private String text;
     private ArrayList<Option> options = new ArrayList<>();
@@ -20,7 +16,7 @@ public class Question  implements Serializable {
         return text;
     }
 
-    public ArrayList<Option> getOptions() {
+    public ArrayList<Option> getOptions () {
         return options;
     }
 }

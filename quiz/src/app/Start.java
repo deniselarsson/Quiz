@@ -3,7 +3,8 @@ package app;
 import java.util.Scanner;
 
 public class Start {
-    public static void startApp() throws InterruptedException {
+
+    public static void startApp () throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         QuestionManager questionManager = new QuestionManager();
 
@@ -43,13 +44,11 @@ public class Start {
                     questionManager.load();
                     questionManager.addQuestion();
                     questionManager.save();
+                    startApp();
                 }
 
                 if (inputNumber == 2) {
-                    System.out.println("Which question do you want to delete?\n" );
-                    questionManager.load();
-                    questionManager.printAllQuestions();
-                    //TODO: Delete questions
+                    QuestionManager.deleteQuestion();
                     startApp();
                     break;
                 }
