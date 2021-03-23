@@ -7,8 +7,8 @@ public class Hourglass extends Thread{
 
     LocalTime start;
     LocalTime end;
-    static long durationTimePlayer1 = 10;
-    static long durationTimePlayer2 = 10;
+    static long durationTimePlayer1;
+    static long durationTimePlayer2;
 
     /*public void resetTime () {
         durationTimePlayer1 = 0;
