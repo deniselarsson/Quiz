@@ -11,6 +11,9 @@ public class Hourglass extends Thread{
     static long durationTimePlayer2;
 
     /*public void resetTime () {
+
+    public void resetTime () {
+
         durationTimePlayer1 = 0;
         durationTimePlayer2 = 0;
     }*/

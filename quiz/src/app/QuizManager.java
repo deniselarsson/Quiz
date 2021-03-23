@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class QuizManager{
 
     static int player1Correct = 0;
@@ -111,6 +112,5 @@ public class QuizManager{
             }
         }
     }
-
 }
 
