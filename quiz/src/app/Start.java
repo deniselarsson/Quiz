@@ -3,8 +3,13 @@ package app;
 import java.util.Scanner;
 
 public class Start {
+
     QuestionManager questionManager = new QuestionManager();
     public void startApp () throws InterruptedException {
+
+
+    public static void startApp () throws InterruptedException {
+
         Scanner scanner = new Scanner(System.in);
 
         Player player1 = new Player();
@@ -48,12 +53,14 @@ public class Start {
 
                 if (inputNumber == 2) {
                     QuestionManager.deleteQuestion();
+
                     startApp();
                     break;
                 }
                 if (inputNumber == 3) {
                     questionManager.load();
                     questionManager.printAllQuestions();
+
                     startApp();
                     break;
                 }
