@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class QuizManager {
+
+public class QuizManager{
 
     static int player1Correct = 0;
     static int player2Correct = 0;
@@ -34,8 +35,8 @@ public class QuizManager {
 
     public static void startTheQuiz (Player player1, Player player2) throws InterruptedException {
         Hourglass hourglass = new Hourglass();
-        hourglass.resetTime();
-
+        Thread hourglass1 = new Hourglass();
+        hourglass1.start();
         resetPoints();
 
         QuestionManager questionManager = new QuestionManager();

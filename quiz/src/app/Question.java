@@ -14,6 +14,7 @@ public class Question implements Serializable {
     public String getText () {
         return text;
     }
+
     public ArrayList<Option> getOptions () {
         return options;
     }

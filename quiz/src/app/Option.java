@@ -16,6 +16,19 @@ public class Option implements Serializable {
         return text;
     }
 
+
+    public void setText (String text) {
+        this.text = text;
+    }
+
+    public boolean getIsCorrectAnswer () {
+        return isCorrectAnswer;
+    }
+
+    public void setIsCorrectAnswer (boolean isCorrectAnswer) {
+        this.isCorrectAnswer = isCorrectAnswer;
+    }
+  
     public boolean getIsCorrectAnswer () {
         return isCorrectAnswer;
     }

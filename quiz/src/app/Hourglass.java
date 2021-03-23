@@ -3,16 +3,26 @@ package app;
 import java.time.Duration;
 import java.time.LocalTime;
 
-public class Hourglass {
+public class Hourglass extends Thread{
 
     LocalTime start;
     LocalTime end;
     static long durationTimePlayer1;
     static long durationTimePlayer2;
 
+    /*public void resetTime () {
+
     public void resetTime () {
+
         durationTimePlayer1 = 0;
         durationTimePlayer2 = 0;
+    }*/
+
+    @Override
+    public void run() {
+        durationTimePlayer1 = 0;
+        durationTimePlayer2 = 0;
+        System.out.println("Multithreading funkar");
     }
 
     public void startTimer () {
