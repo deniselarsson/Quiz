@@ -7,7 +7,6 @@ public class Main {
         Start start = new Start();
         start.startApp();
 
-        Start.startApp();
 
     }
 }
