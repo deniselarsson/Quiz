@@ -63,26 +63,23 @@ public class QuestionManager {
             System.out.println((i + 1) + " - " + options.get(i).getText());
         }
     }
-    public static void deleteQuestion () throws InterruptedException {
-
-        QuestionManager questionManager = new QuestionManager();
+    public void deleteQuestion () throws InterruptedException {
 
         System.out.println("Which question do you want to delete?\n");
         Thread.sleep(1000);
-        questionManager.load();
-        questionManager.printAllQuestions();
+        printAllQuestions();
 
         Scanner scan = new Scanner(System.in);
         System.out.print("\nDelete: ");
         Integer index = Integer.parseInt(scan.nextLine()) - 1;
-        if (questionManager.questions.remove(questionManager.questions.get(index))) {
+        if (questions.remove(questions.get(index))) {
             System.out.println("Question removed");
             Thread.sleep(2000);
         }
         else {
             System.out.println("Could not remove question");
         }
-        questionManager.save();
-        questionManager.printAllQuestions();
+        save();
+        printAllQuestions();
     }
 }

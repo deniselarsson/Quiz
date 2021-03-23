@@ -49,7 +49,7 @@ public class Start {
                     }
 
                     if (inputNumber == 2) {
-                        QuestionManager.deleteQuestion();
+                        questionManager.deleteQuestion();
 
                         startApp();
                         break;
@@ -109,7 +109,7 @@ public class Start {
                     }
 
                     if (inputNumber == 2) {
-                        QuestionManager.deleteQuestion();
+                        questionManager.deleteQuestion();
                         playAgain(player1, player2);
                         break;
                     }
