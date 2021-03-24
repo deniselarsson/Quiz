@@ -7,6 +7,10 @@ import java.util.Scanner;
 
 public class QuizManager{
 
+    static String RED = "\u001B[31m";
+    static String GREEN = "\u001B[32m";
+    static String RESET = "\u001B[0m";
+
     static int player1Correct = 0;
     static int player2Correct = 0;
 
@@ -52,7 +56,7 @@ public class QuizManager{
         for (int i = 0; i < 3; i++) {
             for (Player player : players) {
 
-                System.out.println("\u001B[0m" + "\nPlayer: " + player.name + "\u001B[0m");
+                System.out.println(RESET + "\nPlayer: " + player.name + RESET);
                 Question question = quizManager.getNextQuestion();
                 QuestionManager.printQuestion(question);
                 Thread.sleep(1000);
@@ -72,7 +76,7 @@ public class QuizManager{
                 }
 
                 if (QuizManager.isCorrectAnswer(question, userAnswer)) {
-                    System.out.println("\u001B[32m" + "CORRECT ANSWER!" + "\u001B[32m");
+                    System.out.println(GREEN + "CORRECT ANSWER!" + GREEN);
                     if (players.get(0).equals(player)) {
                         player1Correct++;
                     }
@@ -81,7 +85,7 @@ public class QuizManager{
                     }
                 }
                 else {
-                    System.out.println("\u001B[31m" + "WRONG ANSWER" + "\u001B[31m");
+                    System.out.println(RED + "WRONG ANSWER" + RED);
                 }
             }
         }
@@ -90,25 +94,25 @@ public class QuizManager{
     public static void comparePoints (Player player1, Player player2) {
         if (player1Correct > player2Correct) {
             player1.addScore();
-            System.out.println("\u001B[0m" + "Congratulations " + player1.name + " you won" + "\u001B[0m");
+            System.out.println(RESET + "Congratulations " + player1.name + " you won" + RESET);
         }
         else if (player1Correct < player2Correct) {
             player2.addScore();
-            System.out.println("\u001B[0m" + "Congratulations " + player2.name + " you won" + "\u001B[0m");
+            System.out.println(RESET + "Congratulations " + player2.name + " you won" + RESET);
         }
         else {
             if (Hourglass.durationTimePlayer1 < Hourglass.durationTimePlayer2) {
-                System.out.println("\u001B[0m" + "Even amount of points but " + player1.name + " was " + (Hourglass.durationTimePlayer2 - Hourglass.durationTimePlayer1) + " seconds faster" + "\u001B[0m");
-                System.out.println("\u001B[0m" + "Congratulations " + player1.name + " you won" + "\u001B[0m");
+                System.out.println(RESET + "Even amount of points but " + player1.name + " was " + (Hourglass.durationTimePlayer2 - Hourglass.durationTimePlayer1) + " seconds faster" + RESET);
+                System.out.println(RESET + "Congratulations " + player1.name + " you won" + RESET);
                 player1.addScore();
             }
             else if (Hourglass.durationTimePlayer1 > Hourglass.durationTimePlayer2) {
-                System.out.println("\u001B[0m" + "Even amount of points but " + player2.name + " was " + (Hourglass.durationTimePlayer1 - Hourglass.durationTimePlayer2) + " seconds faster" + "\u001B[0m");
-                System.out.println("\u001B[0m" + "Congratulations " + player2.name + " you won" + "\u001B[0m");
+                System.out.println(RESET + "Even amount of points but " + player2.name + " was " + (Hourglass.durationTimePlayer1 - Hourglass.durationTimePlayer2) + " seconds faster" + RESET);
+                System.out.println(RESET + "Congratulations " + player2.name + " you won" + "\u001B[0m");
                 player2.addScore();
             }
             else {
-                System.out.println("\u001B[0m" + "Equal time and points, no winner :(" + "\u001B[0m");
+                System.out.println(RESET + "Equal time and points, no winner :(" + RESET);
             }
         }
     }
